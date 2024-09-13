@@ -1,3 +1,10 @@
+/* Font Import */
+
+@font-face {
+    font-family: 'Cyberfunk';
+    src: url(Cyberfunk.ttf);
+}
+
 /* Global */
 
 html, body {
@@ -32,7 +39,6 @@ header {
     left: 0px;
     top: 0px;
     right: 0px;
-    background-color: aqua;
 }
 
 .header-inner.top {
@@ -51,8 +57,17 @@ header {
     text-decoration: none;
     color: black;
     padding-left: 10px;
-    font-size: 120%;
+    font-size: 200%;
     letter-spacing: 1px;
+    font-family: 'Cyberfunk';
+}
+
+#logo .first-letter {
+    color: #ee05f2;
+}
+
+#logo .second-letter {
+    color: #0bbfbf;
 }
 
 /* Right Side */
@@ -78,6 +93,7 @@ header {
     color: black;
     font-size: 110%;
     letter-spacing: 1px;
+    font-family: 'Bahnschrift';
     -webkit-transition: color 0.5s;
     -moz-transition:    color 0.5s;
     -ms-transition:     color 0.5s;
@@ -86,5 +102,5 @@ header {
 }
 
 .header-nav.menu-items a:hover {
-    color: yellow;
+    color: grey;
 }
