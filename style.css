@@ -1,0 +1,90 @@
+/* Global */
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+header {
+    width: 100%;
+    height: 5%;
+    left: 0px;
+    top: 0px;
+    right: 0px;
+}
+
+.section-left button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+/* Navigation Bar */
+
+.page-content-inner {
+    width: 100%;
+    height: 5%;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    right: 0px;
+    background-color: aqua;
+}
+
+.header-inner.top {
+    padding: 1.5% 3%;
+}
+
+/* Left Side */
+
+.section-left {
+    width: 20%;
+    height: 5%;
+    display: inline-block;
+}
+
+#logo {
+    text-decoration: none;
+    color: black;
+    padding-left: 10px;
+    font-size: 120%;
+    letter-spacing: 1px;
+}
+
+/* Right Side */
+
+.section-right {
+    width: 60%;
+    height: 5%;
+    display: inline-block;
+    float: right;
+}
+
+.header-nav.languages {
+    float: right;
+}
+
+.header-nav.menu-items {
+    width: 21%;
+    float: right;
+}
+
+.header-nav.menu-items a {
+    text-decoration: none;
+    color: black;
+    font-size: 110%;
+    letter-spacing: 1px;
+    -webkit-transition: color 0.5s;
+    -moz-transition:    color 0.5s;
+    -ms-transition:     color 0.5s;
+    -o-transition:      color 0.5s;
+    transition:         color 0.5s;
+}
+
+.header-nav.menu-items a:hover {
+    color: yellow;
+}
