@@ -17,6 +17,7 @@ body {
 }
 
 header {
+    background-color: #f9f9f9;
     width: 100%;
     height: 5%;
     left: 0px;
@@ -102,5 +103,65 @@ header {
 }
 
 .header-nav.menu-items a:hover {
+    color: grey;
+}
+
+/* -------------- */
+
+/* Footer */
+
+footer {
+    background-color: #f9f9f9;
+    padding: 20px 0;
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+  
+.footer-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+  
+.logo-contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+  
+.footer-logo {
+    max-width: 150px;
+    margin-bottom: 10px;
+}
+  
+.contact-info p {
+    font-family: 'Bahnschrift';
+    color: #000;
+    margin: 0;
+    font-size: 16px;
+}
+  
+.contact-info i {
+    margin-right: 8px;
+}
+
+.contact-info a {
+    text-decoration: none;
+    color: black;
+}
+
+.logo-contact #logo .first-letter,
+.logo-contact #logo .second-letter {
+    font-size: 160%;
+}
+
+.contact-info a {
+    text-decoration: none;
+    color: black;
+}
+
+.contact-info a:hover {
     color: grey;
 }
