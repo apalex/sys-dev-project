@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Nov 01, 2024 at 07:36 PM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.2.0
+-- Host: localhost
+-- Generation Time: Nov 02, 2024 at 10:07 PM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `cyberstation`
+-- Database: `cyberstationdb`
 --
 
 -- --------------------------------------------------------
@@ -58,7 +58,7 @@ CREATE TABLE `reservation` (
   `stationId` int(11) NOT NULL,
   `u_email` varchar(64) NOT NULL,
   `u_phone` varchar(64) NOT NULL,
-  `amtTime` varchar(64) NOT NULL,
+  `reservationTime` varchar(64) NOT NULL,
   `lengthOfRes` double NOT NULL,
   `reservationDate` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -73,6 +73,19 @@ CREATE TABLE `station` (
   `stationId` int(11) NOT NULL,
   `status` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `station`
+--
+
+INSERT INTO `station` (`stationId`, `status`) VALUES
+(1, 1),
+(2, 1),
+(3, 1),
+(4, 1),
+(5, 1),
+(6, 1),
+(7, 1);
 
 -- --------------------------------------------------------
 
@@ -116,8 +129,7 @@ ALTER TABLE `reservation`
 -- Indexes for table `station`
 --
 ALTER TABLE `station`
-  ADD PRIMARY KEY (`stationId`),
-  ADD KEY `stationId` (`stationId`);
+  ADD PRIMARY KEY (`stationId`);
 
 --
 -- Indexes for table `users`
@@ -151,7 +163,7 @@ ALTER TABLE `reservation`
 -- AUTO_INCREMENT for table `station`
 --
 ALTER TABLE `station`
-  MODIFY `stationId` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `stationId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -168,12 +180,6 @@ ALTER TABLE `users`
 --
 ALTER TABLE `payment`
   ADD CONSTRAINT `payment_ibfk_1` FOREIGN KEY (`reservationId`) REFERENCES `reservation` (`reservationId`) ON UPDATE CASCADE;
-
---
--- Constraints for table `station`
---
-ALTER TABLE `station`
-  ADD CONSTRAINT `station_ibfk_1` FOREIGN KEY (`stationId`) REFERENCES `reservation` (`stationId`) ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

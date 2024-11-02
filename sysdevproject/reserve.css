@@ -1,0 +1,93 @@
+fieldset {
+    border: 1px solid #ccc; /* Optional styling for the fieldset */
+    padding: 20px; /* Padding inside the fieldset */
+    margin: 20px auto; /* Center the fieldset */
+    width: 300px; /* Set the width of the fieldset */
+}
+
+input[type="text"], select, input[type="date"] {
+    width: 100%; /* Full width */
+    padding: 10px; /* Padding inside inputs for better appearance */
+    margin-bottom: 10px; /* Space between inputs */
+    border: 1px solid #ccc; /* Border styling */
+    border-radius: 4px; /* Rounded corners */
+}
+
+input[type="text"]::placeholder {
+    color: #888; /* Placeholder text color */
+}
+
+select {
+    cursor: pointer; /* Pointer cursor for selects */
+}
+
+h1 {
+    text-align: center; /* Center the heading */
+}
+
+/* Optional: Style the required field indicator */
+p {
+    font-size: 0.9em; /* Smaller font for the required field notice */
+    color: #555; /* Color for the required field notice */
+}
+
+.asterix-higlighted{
+    color: red;
+}
+
+/* Input CSS */
+
+.name-inputs {
+    display: flex; /* Use flexbox to align the inputs */
+    justify-content: space-between; /* Space between the inputs */
+}
+
+.name-inputs input {
+    width: 48%; /* Each input takes almost half of the container */
+    margin-right: 5%; /* Space between inputs */
+}
+
+.name-inputs input:last-child {
+    margin-right: 0; /* Remove margin from the last input */
+}
+
+.email-input{
+    display: flex;
+    justify-content: space-between;
+}
+
+.email-input input{
+    margin-right: 0;
+}
+
+.phone-input{
+    display: flex;
+    justify-content: space-between;
+}
+
+.phone-input input{
+    margin-right: 0;
+}
+
+.reservationTime {
+    display: flex; /* Use flexbox to align the selects */
+    justify-content: space-between; /* Space between the selects */
+}
+
+.reservationTime select {
+    width: calc(33.33% - 10px); /* Each select takes one third of the container minus margin */
+    margin-right: 5px; /* Space between selects */
+}
+
+.reservationTime select:last-child {
+    margin-right: 0; /* Remove margin from the last select */
+}
+
+.date-input{
+    display: flex;
+    justify-content: space-between;
+}
+
+.date-input input{
+    margin-right: 0;
+}
