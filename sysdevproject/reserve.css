@@ -1,93 +1,72 @@
 fieldset {
-    border: 1px solid #ccc; /* Optional styling for the fieldset */
-    padding: 20px; /* Padding inside the fieldset */
-    margin: 20px auto; /* Center the fieldset */
-    width: 300px; /* Set the width of the fieldset */
+    border: 1px solid #ccc; 
+    padding: 20px; 
+    margin: 20px auto; 
+    width: 80%; 
+    max-width: 600px; 
+    border-radius: 8px; 
+    background-color: white; 
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
 }
 
-input[type="text"], select, input[type="date"] {
-    width: 100%; /* Full width */
-    padding: 10px; /* Padding inside inputs for better appearance */
-    margin-bottom: 10px; /* Space between inputs */
-    border: 1px solid #ccc; /* Border styling */
-    border-radius: 4px; /* Rounded corners */
+input[type="text"], input[type="email"], input[type="tel"], select, input[type="date"] {
+    width: 100%; 
+    padding: 10px; 
+    margin-bottom: 15px; 
+    border: 1px solid #ee05f2; 
+    border-radius: 4px; 
+    box-sizing: border-box; 
 }
 
-input[type="text"]::placeholder {
-    color: #888; /* Placeholder text color */
+input[type="text"]::placeholder, input[type="email"]::placeholder, input[type="tel"]::placeholder {
+    color: #888; 
 }
 
 select {
-    cursor: pointer; /* Pointer cursor for selects */
+    cursor: pointer; 
 }
 
 h1 {
-    text-align: center; /* Center the heading */
+    text-align: center; 
 }
 
-/* Optional: Style the required field indicator */
 p {
-    font-size: 0.9em; /* Smaller font for the required field notice */
-    color: #555; /* Color for the required field notice */
+    text-align: center; 
+    font-size: 0.9em; 
+    color: #555; 
 }
 
-.asterix-higlighted{
-    color: red;
+.asterix-higlighted {
+    color: red; 
 }
-
-/* Input CSS */
 
 .name-inputs {
-    display: flex; /* Use flexbox to align the inputs */
-    justify-content: space-between; /* Space between the inputs */
+    display: flex; 
+    justify-content: space-between; 
 }
 
 .name-inputs input {
-    width: 48%; /* Each input takes almost half of the container */
-    margin-right: 5%; /* Space between inputs */
-}
-
-.name-inputs input:last-child {
-    margin-right: 0; /* Remove margin from the last input */
-}
-
-.email-input{
-    display: flex;
-    justify-content: space-between;
-}
-
-.email-input input{
-    margin-right: 0;
-}
-
-.phone-input{
-    display: flex;
-    justify-content: space-between;
-}
-
-.phone-input input{
-    margin-right: 0;
+    width: 48%; 
 }
 
 .reservationTime {
-    display: flex; /* Use flexbox to align the selects */
-    justify-content: space-between; /* Space between the selects */
+    display: flex; 
+    justify-content: space-between; 
 }
 
 .reservationTime select {
-    width: calc(33.33% - 10px); /* Each select takes one third of the container minus margin */
-    margin-right: 5px; /* Space between selects */
+    width: calc(33.33% - 10px); 
 }
 
-.reservationTime select:last-child {
-    margin-right: 0; /* Remove margin from the last select */
+.button {
+    text-align: right; 
 }
 
-.date-input{
-    display: flex;
-    justify-content: space-between;
-}
-
-.date-input input{
-    margin-right: 0;
+.submit-button {
+    border: 0;
+    width: 90px;
+    padding: 10px;
+    border-radius: 25px;
+    background-color: #0bbfbf; 
+    color: white; 
 }
