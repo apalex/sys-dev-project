@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Nov 03, 2024 at 11:16 PM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- Host: 127.0.0.1
+-- Generation Time: Nov 04, 2024 at 12:19 AM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -37,6 +37,21 @@ CREATE TABLE `admin` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `locations`
+--
+
+CREATE TABLE `locations` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `code` varchar(10) NOT NULL,
+  `details` text NOT NULL,
+  `status` enum('Open','Closed','Coming Soon') NOT NULL,
+  `hours` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `payment`
 --
 
@@ -56,20 +71,12 @@ CREATE TABLE `payment` (
 CREATE TABLE `reservation` (
   `reservationId` int(11) NOT NULL,
   `stationId` int(11) NOT NULL,
-  `u_name` varchar(64) NOT NULL,
   `u_email` varchar(64) NOT NULL,
   `u_phone` varchar(64) NOT NULL,
   `reservationTime` varchar(64) NOT NULL,
   `lengthOfRes` double NOT NULL,
   `reservationDate` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `reservation`
---
-
-INSERT INTO `reservation` (`reservationId`, `stationId`, `u_name`, `u_email`, `u_phone`, `reservationTime`, `lengthOfRes`, `reservationDate`) VALUES
-(34, 2, 'Finelli, Gennaro', 'gennarofinelli@hotmail.com', '+1 514 649 2232', '01:00 AM', 30, '2024-11-03');
 
 -- --------------------------------------------------------
 
@@ -120,6 +127,12 @@ ALTER TABLE `admin`
   ADD PRIMARY KEY (`adminId`);
 
 --
+-- Indexes for table `locations`
+--
+ALTER TABLE `locations`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `payment`
 --
 ALTER TABLE `payment`
@@ -131,7 +144,7 @@ ALTER TABLE `payment`
 --
 ALTER TABLE `reservation`
   ADD PRIMARY KEY (`reservationId`),
-  ADD KEY `stationId` (`stationId`) USING BTREE;
+  ADD UNIQUE KEY `stationId` (`stationId`);
 
 --
 -- Indexes for table `station`
@@ -156,6 +169,12 @@ ALTER TABLE `admin`
   MODIFY `adminId` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `locations`
+--
+ALTER TABLE `locations`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `payment`
 --
 ALTER TABLE `payment`
@@ -165,7 +184,7 @@ ALTER TABLE `payment`
 -- AUTO_INCREMENT for table `reservation`
 --
 ALTER TABLE `reservation`
-  MODIFY `reservationId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `reservationId` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `station`
