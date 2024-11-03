@@ -22,7 +22,7 @@ $path = dirname($_SERVER['SCRIPT_NAME']);
                         </a>
                     </div>
                     <div class="header-nav menu-items">
-                        <a href="?controller=user&action=<?php echo $log_path?>" id="account">
+                        <a href=<?php echo $path . "/Contact"; ?> id="account">
                             CONTACT US
                         </a>
                     </div>
