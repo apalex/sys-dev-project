@@ -1,9 +1,12 @@
+<?php
+$path = dirname($_SERVER['SCRIPT_NAME']);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <title>CyberStation</title>
     <link rel="icon" type="image/x-icon" href="Images/cyberStation.ico">
-    <link rel="stylesheet" href="reserve.css">
+    <link rel="stylesheet" href=<?=$path."/CSS/reserve.css"?>>
 </head>
 <body>
     <?php include_once dirname(__DIR__) . "/nav.php"; ?>
@@ -12,8 +15,8 @@
 
     <p>Please be sure to use the dropdown menu and select the appropriate option so we can better assist you.</p>
 
-    <form action="">
-        <fieldset style="text-align: left; width: fit-content; margin: 0 auto;">
+    <form action=<?=$path."/reservation/add"?> method="POST">
+        <fieldset style="text-align: left; margin: 0 auto;">
             <p id="reminder">"<span class="asterix-higlighted">*</span>" indicates required fields</p>
             <select name="station">
                 <option disabled selected>Station Number</option>
@@ -23,7 +26,7 @@
                     }
                 ?>
             </select><br>
-            <div class="name-inputs"> <!-- New wrapper for first and last name -->
+            <div class="name-inputs">
                 <input type="text" name="firstName" placeholder="First Name">
                 <input type="text" name="lastName" placeholder="Last Name">
             </div>

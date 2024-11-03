@@ -13,7 +13,7 @@ input[type="text"], input[type="email"], input[type="tel"], select, input[type="
     width: 100%; 
     padding: 10px; 
     margin-bottom: 15px; 
-    border: 1px solid #ee05f2; 
+    border: 1px solid #ee05f2;
     border-radius: 4px; 
     box-sizing: border-box; 
 }

@@ -1,3 +1,6 @@
+<?php
+$path = dirname($_SERVER['SCRIPT_NAME']);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us - Cyber Station</title>
     <link rel="icon" type="image/x-icon" href="Images/cyberStation.ico">
-    <link rel="stylesheet" href="contact.css">
+    <link rel="stylesheet" href=<?=$path."/CSS/contact.css"?>>
 </head>
 <body>
     <?php include_once dirname(__DIR__) . "/nav.php"; ?>
