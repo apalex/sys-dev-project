@@ -1,0 +1,148 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+   /* display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;*/
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.container {
+    text-align: center;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    font-style: italic;
+    padding-top: 150px;
+    color: #000;
+}
+
+p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto 30px auto;
+}
+
+.location-icon {
+    margin-top: 20px;
+}
+
+.location-icon img {
+    width: 100px;
+    height: 100px;
+}
+
+.hex-background {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    z-index: -1;
+}
+
+.hex {
+    opacity: 0.1;
+}
+
+.hex-left, .hex-right {
+    display: inline-block;
+}
+
+.hex-left img, .hex-right img {
+    height: 100px;
+    margin: 10px;
+}
+
+.hex-right {
+    float: right;
+}
+
+.hex-left {
+    float: left;
+}
+
+.location-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 0;
+    background-color: white;
+}
+
+.location-details, .location-image {
+    width: 50%;
+}
+
+/*.location-details {
+    padding: 20px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.1);
+}*/
+
+.location-details {
+    display: flex;
+    flex-direction: column;  /* Stack items vertically */
+    justify-content: center; /* Center items vertically */
+    align-items: center;     /* Center items horizontally */
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.1);
+    height: 100%; /* Ensure the box has height to center within */
+    text-align: center; /* Keep text alignment centered */
+}
+
+.location-details h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    font-style: italic;
+    text-align: center;
+}
+
+.location-details p {
+    font-size: 1rem;
+    margin: 10px 0;
+}
+
+.status {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.status .open {
+    color: green;
+    margin-right: 10px;
+}
+
+.more-info {
+    display: inline-block;
+    padding: 10px 20px;
+    border: 2px solid #007BFF;
+    border-radius: 20px;
+    text-align: center;
+    color: #007BFF;
+    text-decoration: none;
+    font-weight: bold;
+    /*transition: all 0.3s;*/
+}
+
+.more-info:hover {
+    background-color: #007BFF;
+    color: white;
+}
+
+.location-image img {
+    width: 100%;
+    height: auto;
+}
+
+.airport-header {
+    text-align: center;
+}
