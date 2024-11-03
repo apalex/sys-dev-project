@@ -16,7 +16,7 @@ $path = dirname($_SERVER['SCRIPT_NAME']);
     <p>Please be sure to use the dropdown menu and select the appropriate option so we can better assist you.</p>
 
     <form action=<?=$path."/reservation/add"?> method="POST">
-        <fieldset style="text-align: left; margin: 0 auto;">
+        <fieldset style="text-align: left; width: fit-content; margin: 0 auto;">
             <p id="reminder">"<span class="asterix-higlighted">*</span>" indicates required fields</p>
             <select name="station">
                 <option disabled selected>Station Number</option>

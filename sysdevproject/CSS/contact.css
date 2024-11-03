@@ -1,175 +1,112 @@
-/* Reset and General Styling */
-* {
+body {
+    background-color: #fff;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
-    color: #333;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    min-height: 100vh;
 }
 
-.container {
-    max-width: 800px;
-    width: 100%;
-    padding: 20px;
-    text-align: center;
-}
-
-/* Header and Footer Logo */
-header, footer {
-    width: 100%;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-header .logo, footer .logo {
-    font-size: 24px;
-    font-weight: bold;
-    color: #ff00ff;
-}
-
-nav {
-    margin-top: 10px;
-}
-
-nav a {
-    color: #00cfc8;
-    text-decoration: none;
-    margin: 0 15px;
-    font-weight: bold;
-}
-
-/* Contact Form Styling */
-main {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-}
-
-.contact-form-container {
-    max-width: 500px;
-    width: 100%;
-}
-
-main h2 {
+h1 {
     font-size: 36px;
     font-weight: bold;
-    margin-bottom: 10px;
+    color: #000;
 }
 
-main p {
-    color: #555;
+p {
     font-size: 16px;
-    margin-bottom: 30px;
+    color: #333;
 }
 
 .contact-form {
+    width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     background-color: #fff;
-    padding: 25px;
-    border-radius: 10px;
-    border: 2px solid #ff00ff;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    text-align: left;
 }
 
 .contact-form label {
     font-size: 14px;
-    color: #555;
-    margin-bottom: 8px;
-    font-weight: bold;
+    color: #000;
+    display: block;
+    margin-bottom: 10px;
 }
 
-.contact-form input,
 .contact-form select,
+.contact-form input[type="text"],
+.contact-form input[type="email"],
 .contact-form textarea {
     width: 100%;
-    padding: 12px;
+    padding: 10px;
+    margin-bottom: 10px;
     border: 1px solid #ff00ff;
     border-radius: 5px;
-    font-size: 14px;
-    outline: none;
+    box-sizing: border-box;
 }
 
 .contact-form select {
-    appearance: none;
     background-color: #fff;
-    color: #333;
-    cursor: pointer;
+    padding-right: 30px;
 }
 
-.name-fields {
+.contact-form .name-fields {
     display: flex;
     gap: 10px;
 }
 
-.name-fields input {
-    flex: 1;
+.contact-form .name-fields input {
+    width: 100%;
 }
 
 .contact-form textarea {
-    height: 100px;
+    height: 150px;
     resize: none;
 }
 
-/* reCAPTCHA */
-.recaptcha {
-    display: flex;
-    align-items: center;
-    justify-content: left;
+.contact-form .button{
+    text-align: right;
+}
+
+.contact-form .submit-btn {
+    border: 0;
+    width: 90px;
+    padding: 10px;
+    border-radius: 25px;
+    background-color: #0bbfbf; 
+    color: white; 
+}
+
+.contact-form .submit-btn:hover {
+    background-color: #009f9f;
+}
+
+.contact-form .recaptcha {
     margin-top: 10px;
 }
 
-/* Submit Button Styling */
-.submit-btn {
-    background-color: #00cfc8;
-    color: #fff;
-    border: none;
-    padding: 14px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: bold;
-    width: 100%;
-    text-transform: uppercase;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    transition: background-color 0.3s ease;
+.asterix-higlighted {
+    color: red; 
 }
 
-.submit-btn:hover {
-    background-color: #00b3a3;
-}
-
-/* Footer Content */
 footer {
-    text-align: center;
-    font-size: 14px;
-    color: #777;
-    margin-top: 30px;
-}
-
-footer .footer-content {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    gap: 5px;
+    padding: 20px;
+    font-size: 14px;
+    color: #333;
 }
 
-/* Responsive Design */
-@media (max-width: 600px) {
-    .name-fields {
-        flex-direction: column;
-    }
+footer a {
+    color: #00bfbf;
+    text-decoration: none;
+    margin: 0 5px;
+}
+
+footer a:hover {
+    text-decoration: underline;
 }

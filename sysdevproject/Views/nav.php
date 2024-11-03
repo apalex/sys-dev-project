@@ -3,7 +3,7 @@ $path = dirname($_SERVER['SCRIPT_NAME']);
 ?>
 <html lang="en">
     <head>
-    <link rel="stylesheet" href="nav.css">
+    <link rel="stylesheet" href=<?=$path."/CSS/nav.css"?>>
     </head>
     <header>
         <div class="page-content-inner">
