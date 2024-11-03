@@ -17,7 +17,7 @@ $path = dirname($_SERVER['SCRIPT_NAME']);
                 </div>
                 <div class="section-right">
                     <div class="header-nav menu-items">
-                        <a href="?controller=user&action=<?php echo $log_path?>" id="account">
+                        <a href=<?php echo $path . "/Location"; ?> id="account">
                             LOCATIONS
                         </a>
                     </div>
