@@ -5,6 +5,7 @@ include_once "db.php";
 class ReservationModel{
     public $reservationId;
     public $stationId;
+    public $u_name;
     public $u_email;
     public $u_phone;
     public $reservationTime;
@@ -15,6 +16,7 @@ class ReservationModel{
     {
         if($id < 0){
             $this->stationId = "";
+            $this->u_name = "";
             $this->u_email = "";
             $this->u_phone = "";
             $this->reservationTime = "";
@@ -27,7 +29,9 @@ class ReservationModel{
             $result = $conn->query($sql);
             $data = ReservationModel::castToReservation($result->fetch_object());
 
+            $this->reservationId = $id;
             $this->stationId = $data->stationId;
+            $this->u_name = $data->u_name;
             $this->u_email = $data->u_email;
             $this->u_phone = $data->u_phone;
             $this->reservationTime = $data->reservationTime;
@@ -39,11 +43,13 @@ class ReservationModel{
     static function castToReservation($obj){
         $reservation = new ReservationModel();
 
+        $reservation->reservationId = $obj->reservationId;
         $reservation->stationId = $obj->stationId;
+        $reservation->u_name = $obj->u_name;
         $reservation->u_email = $obj->u_email;
         $reservation->u_phone = $obj->u_phone;
         $reservation->reservationTime = $obj->reservationTime;
-        $reservation->lengthOfReservation = $obj->lengthOfReservation;
+        $reservation->lengthOfReservation = $obj->lengthOfRes;
         $reservation->reservationDate = $obj->reservationDate;
 
         return $reservation;
@@ -99,6 +105,13 @@ class ReservationModel{
         $stmt->bind_param("issssss", $data['station'], $name, $data['email'], $data['phone'], $reservationTime, $data['length'], $data['reservationDate']);
 
         $stmt->execute();
+    }
+
+    function delete(){
+        global $conn;
+        $sql = "DELETE FROM `reservation` WHERE `reservationId` = ". $this->reservationId;
+
+        $conn->query($sql);
     }
 }
 

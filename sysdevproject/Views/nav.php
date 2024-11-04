@@ -1,5 +1,7 @@
 <?php
 $path = dirname($_SERVER['SCRIPT_NAME']);
+
+$controller = isset($_GET['controller']) ? $_GET['controller'] : "";
 ?>
 <html lang="en">
     <head>
@@ -16,21 +18,29 @@ $path = dirname($_SERVER['SCRIPT_NAME']);
                     </div>
                 </div>
                 <div class="section-right">
-                    <div class="header-nav menu-items">
-                        <a href=<?php echo $path . "/Location"; ?> id="account">
-                            LOCATIONS
-                        </a>
-                    </div>
-                    <div class="header-nav menu-items">
-                        <a href=<?php echo $path . "/Contact"; ?> id="account">
-                            CONTACT US
-                        </a>
-                    </div>
-                    <div class="header-nav menu-items">
-                        <a href=<?php echo $path . "/Reservation"; ?> id="account">
-                            RESERVE NOW
-                        </a>
-                    </div>
+                    <?php if($controller != "admin"){ ?>
+                        <div class="header-nav menu-items">
+                            <a href=<?php echo $path . "/Location"; ?> id="account">
+                                LOCATIONS
+                            </a>
+                        </div>
+                        <div class="header-nav menu-items">
+                            <a href=<?php echo $path . "/Contact"; ?> id="account">
+                                CONTACT US
+                            </a>
+                        </div>
+                        <div class="header-nav menu-items">
+                            <a href=<?php echo $path . "/Reservation"; ?> id="account">
+                                RESERVE NOW
+                            </a>
+                        </div>
+                    <?php }elseif($controller == "admin") {?>
+                        <div class="header-nav menu-items">
+                            <a href=<?php echo $path . "/Admin/logout"; ?> id="account">
+                                LOGOUT
+                            </a>
+                        </div>
+                    <?php }?>
                     <div class="header-nav languages">
                         <select id="languages">
                             <option disabled selected>Languages</option>

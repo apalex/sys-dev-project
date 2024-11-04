@@ -10,13 +10,6 @@ $path = dirname($_SERVER['SCRIPT_NAME']);
     <link rel="stylesheet" href=<?=$path."/CSS/admin.css"?>>
 </head>
 <body>
-
-<div class="hexagon-container">
-        <div class="hexagon"></div>
-        <div class="hexagon"></div>
-        <div class="hexagon"></div>
-    </div>
-
     <div id="notification" class="notification"></div>
     
     <div class="login-container">

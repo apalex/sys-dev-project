@@ -1,0 +1,134 @@
+/* General body styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-size: 36px;
+    font-weight: bold;
+    color: #000;
+    margin-top: 20px;
+}
+
+p {
+    font-size: 24px;
+    font-weight: bold;
+    color: #000;
+    margin-top: 0;
+}
+
+/* Admin Container */
+.admin-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.reservations-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 50px;
+    width: 100%;
+    max-width: 900px;
+}
+
+/* Reservations and Reservation Info Boxes */
+.reservations,
+.reservation-info {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+}
+
+/* Headings */
+.reservations h2,
+.reservation-info h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+/* Search Box */
+.search-box {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 2px solid #da70d6;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+/* Reservation List */
+.reservation-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.reservation-list li {
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #da70d6;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #da70d6;
+    cursor: pointer;
+    text-align: center;
+}
+
+/* Reservation Info Form */
+.reservation-info form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.reservation-info label {
+    font-weight: bold;
+    font-size: 14px;
+    color: #333;
+}
+
+.reservation-info input {
+    padding: 8px;
+    border: 2px solid #da70d6;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+/* Buttons */
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.edit-btn, .delete-btn {
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.edit-btn {
+    background-color: #20b2aa;
+}
+
+.delete-btn {
+    background-color: #da70d6;
+}
