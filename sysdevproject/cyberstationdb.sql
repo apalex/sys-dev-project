@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Nov 04, 2024 at 12:19 AM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.2.0
+-- Host: localhost
+-- Generation Time: Nov 04, 2024 at 05:55 AM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -34,20 +34,12 @@ CREATE TABLE `admin` (
   `validateAdmin` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- --------------------------------------------------------
-
 --
--- Table structure for table `locations`
+-- Dumping data for table `admin`
 --
 
-CREATE TABLE `locations` (
-  `id` int(11) NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `code` varchar(10) NOT NULL,
-  `details` text NOT NULL,
-  `status` enum('Open','Closed','Coming Soon') NOT NULL,
-  `hours` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+INSERT INTO `admin` (`adminId`, `username`, `password`, `validateAdmin`) VALUES
+(1, 'gFinelli', '123', 1);
 
 -- --------------------------------------------------------
 
@@ -71,6 +63,7 @@ CREATE TABLE `payment` (
 CREATE TABLE `reservation` (
   `reservationId` int(11) NOT NULL,
   `stationId` int(11) NOT NULL,
+  `u_name` varchar(64) NOT NULL,
   `u_email` varchar(64) NOT NULL,
   `u_phone` varchar(64) NOT NULL,
   `reservationTime` varchar(64) NOT NULL,
@@ -127,12 +120,6 @@ ALTER TABLE `admin`
   ADD PRIMARY KEY (`adminId`);
 
 --
--- Indexes for table `locations`
---
-ALTER TABLE `locations`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `payment`
 --
 ALTER TABLE `payment`
@@ -144,7 +131,7 @@ ALTER TABLE `payment`
 --
 ALTER TABLE `reservation`
   ADD PRIMARY KEY (`reservationId`),
-  ADD UNIQUE KEY `stationId` (`stationId`);
+  ADD KEY `stationId` (`stationId`) USING BTREE;
 
 --
 -- Indexes for table `station`
@@ -166,13 +153,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `adminId` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `locations`
---
-ALTER TABLE `locations`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `adminId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `payment`
@@ -184,7 +165,7 @@ ALTER TABLE `payment`
 -- AUTO_INCREMENT for table `reservation`
 --
 ALTER TABLE `reservation`
-  MODIFY `reservationId` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `reservationId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `station`
