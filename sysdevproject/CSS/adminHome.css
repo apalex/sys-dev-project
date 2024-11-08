@@ -1,134 +1,79 @@
-/* General body styling */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f8f8f8;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0;
-    padding: 0;
+/* Styles for the admin page */
+
+#logo {
+    text-decoration: none;
+    color: black;
+    padding-left: 10px;
+    font-size: 2rem;
+    letter-spacing: 1px;
+    font-family: 'Cyberfunk';
+    display: inline-block;
+    line-height: 1; /* Ensures the text is aligned in the middle */
+}
+
+#logo .first-letter {
+    color: #ee05f2;
+}
+
+#logo .second-letter {
+    color: #0bbfbf;
+}
+
+.admin-container {
+    width: 80%;
+    margin: 0 auto;
+    padding-top: 20px;
+    text-align: center;
 }
 
 h1 {
-    font-size: 36px;
-    font-weight: bold;
-    color: #000;
-    margin-top: 20px;
-}
-
-p {
-    font-size: 24px;
-    font-weight: bold;
-    color: #000;
-    margin-top: 0;
-}
-
-/* Admin Container */
-.admin-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    padding: 20px;
-}
-
-.reservations-container {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 50px;
-    width: 100%;
-    max-width: 900px;
-}
-
-/* Reservations and Reservation Info Boxes */
-.reservations,
-.reservation-info {
-    background-color: #fff;
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 300px;
-}
-
-/* Headings */
-.reservations h2,
-.reservation-info h2 {
-    font-size: 24px;
-    font-weight: bold;
-    color: #000;
-    margin-bottom: 15px;
-    text-align: center;
-}
-
-/* Search Box */
-.search-box {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 15px;
-    border: 2px solid #da70d6;
-    border-radius: 5px;
-    font-size: 14px;
-}
-
-/* Reservation List */
-.reservation-list {
-    list-style-type: none;
-    padding: 0;
-}
-
-.reservation-list li {
-    padding: 10px;
-    margin: 5px 0;
-    border: 1px solid #da70d6;
-    border-radius: 5px;
-    font-size: 16px;
-    color: #da70d6;
-    cursor: pointer;
-    text-align: center;
-}
-
-/* Reservation Info Form */
-.reservation-info form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.reservation-info label {
-    font-weight: bold;
-    font-size: 14px;
+    font-size: 2em;
     color: #333;
 }
 
-.reservation-info input {
-    padding: 8px;
-    border: 2px solid #da70d6;
-    border-radius: 5px;
-    font-size: 14px;
+p {
+    font-size: 1.2em;
+    color: #555;
 }
 
-/* Buttons */
-.buttons {
+table.reservations {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table.reservations th, 
+table.reservations td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+table.reservations thead tr {
+    background-color: #ee05f2; /* Change this to your preferred color */
+    color: white;
+}
+
+table.reservations tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+table.reservations tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+table.reservations a {
+    color: #ee05f2;
+    text-decoration: none;
+}
+
+table.reservations a:hover {
+    text-decoration: underline;
+}
+
+table.reservations #actions{
     display: flex;
-    justify-content: space-between;
-    margin-top: 15px;
-}
-
-.edit-btn, .delete-btn {
-    padding: 8px 16px;
-    font-size: 14px;
-    font-weight: bold;
-    border: none;
-    border-radius: 5px;
-    color: #fff;
-    cursor: pointer;
-}
-
-.edit-btn {
-    background-color: #20b2aa;
-}
-
-.delete-btn {
-    background-color: #da70d6;
+    justify-content: space-around;
+    text-align: center;
+    vertical-align: middle;
 }
