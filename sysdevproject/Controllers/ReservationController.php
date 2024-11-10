@@ -1,6 +1,6 @@
 <?php
     include_once "Controllers/Controller.php";
-    include_once "Models/Station.php";
+    include_once "Models/StationModel.php";
     include_once "Models/ReservationModel.php";
 
     class ReservationController extends Controller{

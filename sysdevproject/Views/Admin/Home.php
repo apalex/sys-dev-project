@@ -13,11 +13,10 @@ $path = dirname($_SERVER['SCRIPT_NAME']);
     <?php include_once dirname(__DIR__)."/nav.php"; ?>
 
     <main class="admin-container">
-    <h1 id="logo">
-        <span class="first-letter">C</span>yber <span class="second-letter">S</span>tation
-    </h1>
+    <h1>Cyber Station</h1>
+    <p>Admin</p>
     
-    <table class="reservations">
+    <table>
         <thead>
             <tr>
                 <th>Station ID</th>
@@ -37,8 +36,8 @@ $path = dirname($_SERVER['SCRIPT_NAME']);
                     echo "<td>".$row->u_phone."</td>";
                     echo "<td>".$row->reservationTime."</td>";
                     echo "<td>".$row->reservationDate."</td>";
-                    echo "<td id='actions'><a href='".$path."/admin/reservationInfo/".$row->reservationId."'><img src='".$path."/Images/view.png' height='25' width='25'></a>";
-                    echo "<a href='".$path."/admin/delete/".$row->reservationId."'><img src='".$path."/Images/trash.png' height='25' width='25'></a></td>";
+                    echo "<td><a href='".$path."/admin/reservationInfo/".$row->reservationId."'>View</a></td>";
+                    echo "<td><a href='".$path."/admin/delete/".$row->reservationId."'>Delete</a></td>";
                     echo "</tr>";
                 }
             ?>

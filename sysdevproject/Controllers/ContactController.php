@@ -1,6 +1,6 @@
 <?php
     include_once "Controllers/Controller.php";
-    include_once "Models/MailContact.php";
+    include_once "Models/ContactModel.php";
 
     class ContactController extends Controller {
         function route() {

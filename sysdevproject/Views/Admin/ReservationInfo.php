@@ -7,18 +7,16 @@ $path = dirname($_SERVER['SCRIPT_NAME']);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Page</title>
-    <link rel="stylesheet" href=<?=$path."/CSS/adminReservations.css"?>>
+    <link rel="stylesheet" href=<?=$path."/CSS/adminHome.css"?>>
 </head>
 <body>
     <?php include_once dirname(__DIR__)."/nav.php"; ?>
 
     <main class="admin-container">
-    <h1 id="logo">
-        <span class="first-letter">C</span>yber <span class="second-letter">S</span>tation
-    </h1>
+    <h1>Cyber Station</h1>
+    <p>Admin</p>
 
-    <table class="reservations">
-        <tbody>
+    <table>
         <tr>
             <th>Reservation ID</th>
             <td><?=$_GET['id']?></td>
@@ -47,9 +45,7 @@ $path = dirname($_SERVER['SCRIPT_NAME']);
             <th>Reservation Date</th>
             <td><?=$data[0]->reservationDate?></td>
         </tr>
-        </tbody>
     </table>
-    <a href=<?=$path."/admin/home"?>>Back</a>
 </main>
 </body>
 </html>
