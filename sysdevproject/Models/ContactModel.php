@@ -8,6 +8,7 @@ require 'PHPMailer/src/SMTP.php';
 
 class Contact {
     static function sendMail() {
+        
         $firstName = isset($_POST['first_name']) ? htmlspecialchars($_POST['first_name']) : '';
         $lastName = isset($_POST['last_name']) ? htmlspecialchars($_POST['last_name']) : '';
         $subject = isset($_POST['subject']) ? htmlspecialchars($_POST['subject']) : '';
@@ -33,7 +34,7 @@ class Contact {
             $mail->Port = 587;
 
             // Recipient Information
-            $mail->setFrom($email, "$firstName $lastName");
+            $mail->setFrom($email, "$firstName "." $lastName");
             $mail->addAddress('sysdevproj69@gmail.com');
             $mail->Subject = $subject;
             $mail->Body = $message;

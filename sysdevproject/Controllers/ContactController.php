@@ -8,7 +8,7 @@
             
             if ($action == "mail") {
                 $contacts = Contact::sendMail();
-                header("Location: ?controller=contact&status=success");
+                $this->render("Contact", "contact");
                 exit;
             } elseif ($action == "index") {
                 include_once "Views/contact/Contact.php";
