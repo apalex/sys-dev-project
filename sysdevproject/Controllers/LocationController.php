@@ -10,10 +10,8 @@ class LocationController extends Controller
 
         if ($action == "index") {
             $this->render("Location", "locations");
-        } elseif ($action == "YUL-Airport") {
-            $this->render("Location", "YUL-Airport");
-        } else {
-            $this->render("Location", "locations");
+        } elseif ($action == "YULAirport") {
+            $this->render("Location", "YULAirport");
         }
     }
 }

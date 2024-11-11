@@ -20,7 +20,7 @@ $path = dirname($_SERVER['SCRIPT_NAME']);
         <p>A grandiose time awaits you at CyberStation!</p>
 
         <div class="location-icon">
-            <img src="icon.png" alt="Location Icon">
+            <img src=<?=$path."/Images/placeholder.png"?> alt="Location Icon">
         </div>
     </div>
     <h2 class="airport-header">Pierre Elliott Trudeau Airport</h2>
@@ -33,10 +33,10 @@ $path = dirname($_SERVER['SCRIPT_NAME']);
                 <span class="open">Open</span>
                 <span>6:00am - 9:00pm EST</span>
             </div>
-            <a href=<?=$path."?controller=location&action=YUL-Airport"?> class="more-info">MORE INFO →</a>
+            <a href=<?=$path."/location/YULAirport"?> class="more-info">MORE INFO →</a>
         </div>
         <div class="location-image">    
-            <img src="image.png" alt="Airport Image">
+            <img src=<?=$path."/Images/CyberStation.png"?> id="cyberStation" alt="Airport Image">
         </div>
     </div>
 
