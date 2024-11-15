@@ -4,9 +4,11 @@ $path = dirname($_SERVER['SCRIPT_NAME']);
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>CyberStation</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Station</title>
     <link rel="icon" type="image/x-icon" href="Images/cyberStation.ico">
-    <link rel="stylesheet" href=<?=$path."/CSS/reserve.css"?>>
+    <link rel="stylesheet" href=<?= $path . "/CSS/reserve.css" ?>>
 </head>
 <body>
     <?php include_once dirname(__DIR__) . "/nav.php"; ?>
@@ -74,5 +76,7 @@ $path = dirname($_SERVER['SCRIPT_NAME']);
             </div>
         </fieldset>
     </form>
+
+    <?php include_once dirname(__DIR__) . "/footer.php"; ?>
 </body>
 </html>

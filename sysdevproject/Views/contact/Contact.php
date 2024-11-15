@@ -7,7 +7,7 @@ $path = dirname($_SERVER['SCRIPT_NAME']);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - Cyber Station</title>
+    <title>Cyber Station</title>
     <link rel="icon" type="image/x-icon" href="Images/cyberStation.ico">
     <link rel="stylesheet" href=<?= $path . "/CSS/contact.css" ?>>
 </head>
@@ -44,6 +44,7 @@ $path = dirname($_SERVER['SCRIPT_NAME']);
     </form>
     </div>
 
+    <?php include_once dirname(__DIR__) . "/footer.php"; ?>
 </body>
 
 </html>

@@ -1,12 +1,14 @@
+<?php
+$path = dirname($_SERVER['SCRIPT_NAME']);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Reserve your spot at CyberStation, the ultimate destination for gaming and entertainment.">
-    <title>CyberStation Reservation</title>
+    <title>Cyber Station</title>
     <link rel="icon" type="image/x-icon" href="Images/cyberStation.ico">
-    <link rel="stylesheet" href="css/homepage.css">
+    <link rel="stylesheet" href=<?= $path . "/CSS/homepage.css" ?>>
 </head>
 <body>
     <?php include_once dirname(__DIR__) . "/nav.php"; ?>
@@ -106,5 +108,7 @@ entertained.</p>
                     experience to make time fly by.</p>
         </section>
     </main>
+
+    <?php include_once dirname(__DIR__) . "/footer.php"; ?>
 </body>
 </html>

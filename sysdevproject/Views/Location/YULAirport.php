@@ -8,10 +8,9 @@ $path = dirname($_SERVER['SCRIPT_NAME']);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href=<?=$path."/CSS/location.css"?>>
     <title>Cyber Station</title>
-    <div class="dynamic-content">
-    </div>
+    <link rel="icon" type="image/x-icon" href="Images/cyberStation.ico">
+    <link rel="stylesheet" href=<?= $path . "/CSS/location.css" ?>>
 </head>
 
 <body>
@@ -25,6 +24,8 @@ $path = dirname($_SERVER['SCRIPT_NAME']);
         </div>
 
     </div>
+
+    <?php include_once dirname(__DIR__) . "/footer.php"; ?>
 </body>
 
 </html>
