@@ -7,6 +7,10 @@ body {
     align-items: center;
 }
 
+main{
+    height: 60%;
+}
+
 h1 {
     font-size: 36px;
     font-weight: bold;

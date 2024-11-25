@@ -18,31 +18,34 @@ $path = dirname($_SERVER['SCRIPT_NAME']);
     <h1>Contact Us</h1>
     <p>Please be sure to use the dropdown menu and select the appropriate option so we can better assist you.</p>
 
-    <?php if (isset($_GET['status']) && $_GET['status'] == 'success'): ?>
-        <p style="color: green; font-weight: bold;">Your message has been sent successfully!</p>
-    <?php endif; ?>
+    <main>
 
-    <form action="<?= $path . "/contact/mail"?>" method="POST" class="contact-form">
-        <p id="reminder">"<span class="asterix-higlighted">*</span>" indicates required fields</p>
-        <select name="subject" id="inquiry-type" required>
-            <option value="General Inquiry">General Inquiry</option>
-            <option value="Support">Careers</option>
-            <option value="Feedback">Complains</option>
-        </select>
+        <?php if (isset($_GET['status']) && $_GET['status'] == 'success'): ?>
+            <p style="color: green; font-weight: bold;">Your message has been sent successfully!</p>
+        <?php endif; ?>
 
-        <div class="name-fields">
-            <input type="text" name="first_name" placeholder="First Name" required>
-            <input type="text" name="last_name" placeholder="Last Name" required>
+        <form action="<?= $path . "/contact/mail"?>" method="POST" class="contact-form">
+            <p id="reminder">"<span class="asterix-higlighted">*</span>" indicates required fields</p>
+            <select name="subject" id="inquiry-type" required>
+                <option value="General Inquiry">General Inquiry</option>
+                <option value="Support">Careers</option>
+                <option value="Feedback">Complains</option>
+            </select>
+
+            <div class="name-fields">
+                <input type="text" name="first_name" placeholder="First Name" required>
+                <input type="text" name="last_name" placeholder="Last Name" required>
+            </div>
+
+            <input type="email" name="email" placeholder="Email" required>
+            <textarea name="message" placeholder="Your message here..." required></textarea>
+
+            <div class="button">
+                <input type="submit" value="Submit" class="submit-btn">
+            </div>
+        </form>
         </div>
-
-        <input type="email" name="email" placeholder="Email" required>
-        <textarea name="message" placeholder="Your message here..." required></textarea>
-
-        <div class="button">
-            <input type="submit" value="Submit" class="submit-btn">
-        </div>
-    </form>
-    </div>
+    </main>
 
     <?php include_once dirname(__DIR__) . "/footer.php"; ?>
 </body>

@@ -7,6 +7,10 @@ body {
     align-items: center;
 }
 
+main{
+    height: 60%;
+}
+
 fieldset {
     width: 400px;
     margin: 0 auto;
@@ -19,12 +23,12 @@ fieldset {
 }
 
 fieldset input[type="text"], input[type="email"], input[type="tel"], select, input[type="date"] {
-    width: 100%; 
-    padding: 10px; 
-    margin-bottom: 15px; 
-    border: 1px solid #ee05f2;
-    border-radius: 4px; 
-    box-sizing: border-box; 
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ff00ff;
+    border-radius: 5px;
+    box-sizing: border-box;
 }
 
 fieldset input[type="text"]::placeholder, input[type="email"]::placeholder, input[type="tel"]::placeholder {
