@@ -12,6 +12,7 @@ class AdminController extends Controller
 
         // Check login state for all actions except "index" and "login"
         $action = isset($_GET['action']) ? $_GET['action'] : "index";
+        $language = isset($_GET['lang']) ? $_GET['lang'] : 'en';
         if (!isset($_SESSION['username']) && !isset($_SESSION['password']) && $action !== "index" && $action !== "login") {
             // Redirect to login page if not logged in
             header("Location: " . dirname($_SERVER['SCRIPT_NAME']) . "/admin");
@@ -24,6 +25,10 @@ class AdminController extends Controller
         if ($action == "index") {
             $this->render("Admin", "login");
         } else if ($action == "login") {
+            if(isset($_SESSION['username'])){
+                header("Location: " . dirname($_SERVER['SCRIPT_NAME']) ."/". $language . "/admin/home");
+                return;
+            }
             if (!isset($_POST['username']) || !isset($_POST['password'])) {
                 // Render login page if form data is missing
                 $this->render("Admin", "login");
@@ -35,8 +40,8 @@ class AdminController extends Controller
             $_SESSION['password'] = $_POST['password'];
 
             if (Admin::validateAdmin($_SESSION)) {
-                $reservations = ReservationModel::list();
-                $this->render("Admin", "home", $reservations);
+                header("Location: " . dirname($_SERVER['SCRIPT_NAME']) ."/". $language . "/admin/home");
+                exit;
             } else {
                 // Render login page if validation fails
                 $this->render("Admin", "index");
@@ -74,7 +79,7 @@ class AdminController extends Controller
             // Log out the user
             $_SESSION = array();
             session_destroy();
-            header("Location: " . dirname($_SERVER['SCRIPT_NAME']) . "/admin");
+            header("Location: " . dirname($_SERVER['SCRIPT_NAME']) ."/".$language."/admin");
         }
     }
 }

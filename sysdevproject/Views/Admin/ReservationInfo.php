@@ -50,7 +50,7 @@ $path = dirname($_SERVER['SCRIPT_NAME']);
         </tr>
         </tbody>
     </table>
-    <a href=<?=$path."/admin/home"?>>Back</a>
+    <a href=<?=$path."/".$language."/admin/home"?>>Back</a>
 </main>
 </body>
 </html>

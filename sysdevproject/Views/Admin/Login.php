@@ -1,5 +1,6 @@
 <?php
 $path = dirname($_SERVER['SCRIPT_NAME']);
+$language = isset($_GET['lang']) ? $_GET['lang'] : 'en';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,7 +17,7 @@ $path = dirname($_SERVER['SCRIPT_NAME']);
     <div class="login-container">
         <h2>ADMIN LOGIN</h2>
 
-        <form action=<?=$path."/admin/login"?> method="POST">
+        <form action=<?=$path."/".$language."/admin/login"?> method="POST">
             <label for="username"></label>
             <input type="text" id="username" name="username" placeholder="Username" required>
             

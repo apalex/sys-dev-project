@@ -16,7 +16,7 @@ $path = dirname($_SERVER['SCRIPT_NAME']);
     <main>
         <!-- Top Image Section -->
         <div class="top-image">
-            <img src="Images/headerimage.png" alt="Main CyberStation Image">
+            <img src="<?=$path?>/Images/headerimage.png" alt="Main CyberStation Image">
         </div>
 
         <!-- How It Works Section -->
@@ -25,24 +25,24 @@ $path = dirname($_SERVER['SCRIPT_NAME']);
     <div class="features">
         <!-- Replace each image source with your actual image paths -->
         <div class="feature-item">
-            <img src="Images/placeholder.png" alt="placeholder">
+            <img src="<?=$path?>/Images/placeholder.png" alt="placeholder">
             <p>Find a CyberStation
             location at YUL Airport</p>
         </div>
         <div class="feature-item">
-            <img src="Images/hour.png" alt="Time">
+            <img src="<?=$path?>/Images/hour.png" alt="Time">
             <p>Decide how long you
 would like to play video
 games.</p>
         </div>
         <div class="feature-item">
-            <img src="Images/wifi.png" alt="High-Speed WiFi">
+            <img src="<?=$path?>/Images/wifi.png" alt="High-Speed WiFi">
             <p>Sit back and enjoy
 gaming at your
 sanitized station.</p>
         </div>
         <div class="feature-item">
-            <img src="Images/airplane.png" alt="Airplane">
+            <img src="<?=$path?>/Images/airplane.png" alt="Airplane">
             <p>Time to board your
 flight relaxed and
 entertained.</p>
@@ -54,8 +54,8 @@ entertained.</p>
         <section class="location">
     <h2>Landing at YUL airport.</h2>
     <div class="location-images">
-        <img src="Images/CyberStation2.png" alt="Left Image">
-        <img src="Images/CyberStation.png" alt="right Image">
+        <img src="<?=$path?>/Images/CyberStation2.png" alt="Left Image">
+        <img src="<?=$path?>/Images/CyberStation.png" alt="right Image">
     </div>
 </section>
 
@@ -66,27 +66,27 @@ entertained.</p>
     <p>To level up your experience, CyberStation provides the following amenities.</p>
     <div class="amenity-items">
         <div class="amenity-box">
-            <img src="Images/playstation.png" alt="Current Gen Gaming">
+            <img src="<?=$path?>/Images/playstation.png" alt="Current Gen Gaming">
             <p>Current Gen Gaming</p>
         </div>
         <div class="amenity-box">
-            <img src="Images/clean.png" alt="Meticulous Cleaning">
+            <img src="<?=$path?>/Images/clean.png" alt="Meticulous Cleaning">
             <p>Meticulous Cleaning and Disinfecting</p>
         </div>
         <div class="amenity-box">
-            <img src="Images/headphones.png" alt="Premium Gaming Headphones">
+            <img src="<?=$path?>/Images/headphones.png" alt="Premium Gaming Headphones">
             <p>Premium Gaming Headphones</p>
         </div>
         <div class="amenity-box">
-            <img src="Images/charging.png" alt="Charging Stations">
+            <img src="<?=$path?>/Images/charging.png" alt="Charging Stations">
             <p>Charging Stations</p>
         </div>
         <div class="amenity-box">
-            <img src="Images/snacks.png" alt="Snacks & Beverages">
+            <img src="<?=$path?>/Images/snacks.png" alt="Snacks & Beverages">
             <p>Snacks & Beverages</p>
         </div>
         <div class="amenity-box">
-            <img src="Images/wifi.png" alt="High Speed Internet">
+            <img src="<?=$path?>/Images/wifi.png" alt="High Speed Internet">
             <p>High Speed Internet</p>
         </div>
     </div>

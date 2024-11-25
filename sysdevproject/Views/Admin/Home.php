@@ -1,5 +1,6 @@
 <?php
 $path = dirname($_SERVER['SCRIPT_NAME']);
+$language = isset($_GET['lang']) ? $_GET['lang'] : 'en';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -38,8 +39,8 @@ $path = dirname($_SERVER['SCRIPT_NAME']);
                     echo "<td>".$row->u_phone."</td>";
                     echo "<td>".$row->reservationTime."</td>";
                     echo "<td>".$row->reservationDate."</td>";
-                    echo "<td id='actions'><a href='".$path."/admin/reservationInfo/".$row->reservationId."'><img src='".$path."/Images/view.png' height='25' width='25'></a>";
-                    echo "<a href='".$path."/admin/delete/".$row->reservationId."'><img src='".$path."/Images/trash.png' height='25' width='25'></a></td>";
+                    echo "<td id='actions'><a href='".$path."/".$language."/admin/reservationInfo/".$row->reservationId."'><img src='".$path."/Images/view.png' height='25' width='25'></a>";
+                    echo "<a href='".$path."/".$language."/admin/delete/".$row->reservationId."'><img src='".$path."/Images/trash.png' height='25' width='25'></a></td>";
                     echo "</tr>";
                 }
             ?>
