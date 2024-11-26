@@ -1,6 +1,8 @@
 <?php
 $path = dirname($_SERVER['SCRIPT_NAME']);
 $language = isset($_GET['lang']) ? $_GET['lang'] : 'en';
+
+include_once "Languages/".$language.".php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,11 +24,11 @@ $language = isset($_GET['lang']) ? $_GET['lang'] : 'en';
     <table class="reservations">
         <thead>
             <tr>
-                <th>Station ID</th>
-                <th>Name</th>
-                <th>Phone</th>
-                <th>Reservation Time</th>
-                <th>Reservation Date</th>
+                <th><?=STATIONID?></th>
+                <th><?=NAME?></th>
+                <th><?=PHONE?></th>
+                <th><?=RESERVATIONTIME?></th>
+                <th><?=RESERVATIONDATE?></th>
                 <th></th>
             </tr>
         </thead>

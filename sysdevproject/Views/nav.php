@@ -4,6 +4,8 @@ $path = dirname($_SERVER['SCRIPT_NAME']);
 $controller = isset($_GET['controller']) ? $_GET['controller'] : "";
 $language = isset($_GET['lang']) ? $_GET['lang'] : 'en';
 $action = isset($_GET['action']) ? $_GET['action'] : 'index';
+
+include_once "Languages/".$language.".php";
 ?>
 <html lang="en">
     <head>
@@ -34,46 +36,52 @@ $action = isset($_GET['action']) ? $_GET['action'] : 'index';
             <div class="header-inner top">
                 <div class="section-left">
                     <div class="header-nav logo">
-                        <a href=<?php echo $path."/".$language?> id="logo">
-                            <span class="first-letter">C</span>yber <span class="second-letter">S</span>tation
-                        </a>
+                        <?php if($controller != "admin"){ ?>
+                            <a href=<?php echo $path."/".$language?> id="logo">
+                                <span class="first-letter">C</span>yber <span class="second-letter">S</span>tation
+                            </a>
+                        <?php } elseif($controller=="admin"){ ?>
+                            <a id="logo">
+                                <span class="first-letter">C</span>yber <span class="second-letter">S</span>tation
+                            </a>
+                        <?php } ?>
                     </div>
                 </div>
                 <div class="section-right">
                     <?php if($controller != "admin"){ ?>
                         <div class="header-nav menu-items">
                             <a href=<?php echo $path ."/". $language . "/Location"; ?> id="account">
-                                LOCATIONS
+                                <?=LOCATIONS?>
                             </a>
                         </div>
                         <div class="header-nav menu-items">
                             <a href=<?php echo $path ."/". $language . "/Contact"; ?> id="account">
-                                CONTACT US
+                                <?=CONTACTUS?>
                             </a>
                         </div>
                         <div class="header-nav menu-items">
                             <a href=<?php echo $path ."/". $language . "/Reservation"; ?> id="account">
-                                RESERVE NOW
+                                <?=RESERVE?>
                             </a>
                         </div>
                         <div class="header-nav languages">
                             <select id="languages" onchange="changeLanguage(this.value)">
-                                <option disabled selected>Languages</option>
-                                <option value='en' <?=$language=='en' ? 'selected' : '' ?>>English</option>
-                                <option value='fr' <?=$language=='fr' ? 'selected' : '' ?>>French</option>
+                                <option disabled selected><?=LANGUAGES?></option>
+                                <option value='en' <?=$language=='en' ? 'selected' : '' ?>><?=ENGLISH?></option>
+                                <option value='fr' <?=$language=='fr' ? 'selected' : '' ?>><?=FRENCH?></option>
                             </select>
                         </div>
                     <?php }elseif($controller == "admin") {?>
                         <div class="header-nav menu-items">
                             <a href=<?php echo $path ."/". $language . "/Admin/logout"; ?> id="account">
-                                LOGOUT
+                                <?=LOGOUT?>
                             </a>
                         </div>
                         <div class="header-nav languages">
                             <select id="languages" onchange="changeLanguage(this.value)">
-                                <option disabled selected>Languages</option>
-                                <option value='en' <?=$language=='en' ? 'selected' : '' ?>>English</option>
-                                <option value='fr' <?=$language=='fr' ? 'selected' : '' ?>>French</option>
+                                <option disabled selected><?=LANGUAGES?></option>
+                                <option value='en' <?=$language=='en' ? 'selected' : '' ?>><?=ENGLISH?></option>
+                                <option value='fr' <?=$language=='fr' ? 'selected' : '' ?>><?=FRENCH?></option>
                             </select>
                         </div>
                     <?php }?>

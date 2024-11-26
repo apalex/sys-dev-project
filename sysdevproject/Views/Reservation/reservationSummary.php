@@ -1,5 +1,8 @@
 <?php
 $path = dirname($_SERVER['SCRIPT_NAME']);
+$language = isset($_GET['lang']) ? $_GET['lang'] : 'en';
+
+include_once "Languages/".$language.".php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,27 +16,27 @@ $path = dirname($_SERVER['SCRIPT_NAME']);
 <body>
     <?php include_once dirname(__DIR__)."/nav.php"; ?>
 
-    <h1>Thank You!</h1>
+    <h1><?=THANK?></h1>
 
-    <p>A confirmation has been sent to your email.</p>
+    <p><?=CONFIRMATION?></p>
 
     <fieldset style="text-align: left; margin: 0 auto;">
-        <h1>Summary</h1>
+        <h1><?=SUMMARY?></h1>
 
-        <label>Station: </label>
+        <label><?=STATION?>: </label>
         <input type="text" disabled value="<?php echo $data['station']?>"><br>
-        <label>Name:</label>
+        <label><?=NAME?>:</label>
         <div class="name-inputs">
             <input type="text" disabled value="<?php echo $data['firstName']?>">
             <input type="text" disabled value="<?php echo $data['lastName']?>">
         </div>
-        <label>Email:</label>
+        <label><?=EMAIL?>:</label>
         <input type="text" disabled value="<?php echo $data['email']?>"><br>
-        <label>Phone:</label>
+        <label><?=PHONE?>:</label>
         <input type="text" disabled value="<?php echo $data['phone']?>"><br>
-        <label>Time of Reservation:</label>
+        <label><?=RESERVATIONTIME?>:</label>
         <input type="text" disabled value="<?php echo $data['hour'].":".$data['minute']." ".$data['morningOrNight']?>"><br>
-        <label>Length of Reservation:</label>
+        <label><?=LENGTH?>:</label>
         <input type="text" disabled value="<?php
             switch($data['length']){
                 case "30":
@@ -47,7 +50,7 @@ $path = dirname($_SERVER['SCRIPT_NAME']);
                     break;
             }
         ?>"><br>
-        <label>Reservation Date:</label>
+        <label><?=RESERVATIONDATE?>:</label>
         <input type="text" disabled value="<?php echo $data['reservationDate']?>"><br>
     </fieldset>
 

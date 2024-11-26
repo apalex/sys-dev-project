@@ -1,5 +1,8 @@
 <?php
 $path = dirname($_SERVER['SCRIPT_NAME']);
+$language = isset($_GET['lang']) ? $_GET['lang'] : 'en';
+
+include_once "Languages/".$language.".php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,36 +24,36 @@ $path = dirname($_SERVER['SCRIPT_NAME']);
     <table class="reservations">
         <tbody>
         <tr>
-            <th>Reservation ID</th>
+            <th><?=RESERVATIONID?></th>
             <td><?=$_GET['id']?></td>
         </tr>
         <tr>
-            <th>Station Number</th>
+            <th><?=STATIONNUM?></th>
             <td><?=$data[0]->stationId?></td>
         </tr>
         <tr>
-            <th>Email</th>
+            <th><?=EMAIL?></th>
             <td><?=$data[0]->u_email?></td>
         </tr>
         <tr>
-            <th>Phone</th>
+            <th><?=PHONE?></th>
             <td><?=$data[0]->u_phone?></td>
         </tr>
         <tr>
-            <th>Reservation Time</th>
+            <th><?=RESERVATIONTIME?></th>
             <td><?=$data[0]->reservationTime?></td>
         </tr>
         <tr>
-            <th>Length of Reservation</th>
-            <td><?=$data[0]->lengthOfReservation?></td>
+            <th><?=LENGTH?></th>
+            <td><?=$data[0]->lengthOfReservation?> <?=MINUTES?></td>
         </tr>
         <tr>
-            <th>Reservation Date</th>
+            <th><?=RESERVATIONDATE?></th>
             <td><?=$data[0]->reservationDate?></td>
         </tr>
         </tbody>
     </table>
-    <a href=<?=$path."/".$language."/admin/home"?>>Back</a>
+    <a href=<?=$path."/".$language."/admin/home"?>><?=BACK?></a>
 </main>
 </body>
 </html>

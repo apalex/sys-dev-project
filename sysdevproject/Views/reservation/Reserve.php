@@ -1,5 +1,8 @@
 <?php
 $path = dirname($_SERVER['SCRIPT_NAME']);
+$language = isset($_GET['lang']) ? $_GET['lang'] : 'en';
+
+include_once "Languages/".$language.".php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,17 +16,17 @@ $path = dirname($_SERVER['SCRIPT_NAME']);
 <body>
     <?php include_once dirname(__DIR__) . "/nav.php"; ?>
 
-    <h1>Reserve Now</h1>
+    <h1><?=RESERVE?></h1>
 
-    <p>Please be sure to use the dropdown menu and select the appropriate option so we can better assist you.</p>
+    <p><?=HELP?></p>
 
     <main>
 
-        <form action=<?=$path."/reservation/add"?> method="POST">
+        <form action=<?=$path."/".$language."/reservation/add"?> method="POST">
             <fieldset style="text-align: left; width: fit-content; margin: 0 auto;">
-                <p id="reminder">"<span class="asterix-higlighted">*</span>" indicates required fields</p>
+                <p id="reminder">"<span class="asterix-higlighted">*</span>"<?=REQUIRED?></p>
                 <select name="station">
-                    <option disabled selected>Station Number</option>
+                    <option disabled selected><?=STATIONNUM?></option>
                     <?php
                         foreach($data as $row){
                             echo "<option value".$row->stationId.">".$row->stationId."</option>";
@@ -31,14 +34,14 @@ $path = dirname($_SERVER['SCRIPT_NAME']);
                     ?>
                 </select><br>
                 <div class="name-inputs">
-                    <input type="text" name="firstName" placeholder="First Name">
-                    <input type="text" name="lastName" placeholder="Last Name">
+                    <input type="text" name="firstName" placeholder="<?=FIRSTNAME?>">
+                    <input type="text" name="lastName" placeholder="<?=LASTNAME?>">
                 </div>
                 <div class="email-input">
-                    <input type="text" name="email" placeholder="EMail"><br>
+                    <input type="text" name="email" placeholder="<?=EMAIL?>"><br>
                 </div>
                 <div class="phone-input">
-                    <input type="text" name="phone" placeholder="Phone Number"><br>
+                    <input type="text" name="phone" placeholder="<?=PHONE?>"><br>
                 </div>
                 <div class="reservationTime">
                     <select name="hour">
@@ -65,16 +68,16 @@ $path = dirname($_SERVER['SCRIPT_NAME']);
                     </select>
                 </div>
                 <select name="length">
-                    <option disabled selected>Reservation times</option>
-                    <option value="30">30 minutes</option>
-                    <option value="60">1 hour</option>
-                    <option value="120">2 hours</option>
+                    <option disabled selected><?=RESERVATION?></option>
+                    <option value="30">30 <?=MINUTES?></option>
+                    <option value="60">1 <?=HOUR?></option>
+                    <option value="120">2 <?=HOURS?></option>
                 </select><br>
                 <div class="date-input">
                     <input type="date" name="reservationDate">
                 </div>
                 <div class="button">
-                    <input type="submit" value="Submit" class="submit-button">
+                    <input type="submit" value="<?=SUBMIT?>" class="submit-button">
                 </div>
             </fieldset>
         </form>

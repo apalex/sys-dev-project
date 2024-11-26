@@ -1,5 +1,8 @@
 <?php
 $path = dirname($_SERVER['SCRIPT_NAME']);
+$language = isset($_GET['lang']) ? $_GET['lang'] : 'en';
+
+include_once "Languages/".$language.".php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,38 +24,31 @@ $path = dirname($_SERVER['SCRIPT_NAME']);
 
         <!-- How It Works Section -->
         <section class="how-it-works">
-    <h2>How Cyber Station Works</h2>
+    <h2><?=HOW?></h2>
     <div class="features">
         <!-- Replace each image source with your actual image paths -->
         <div class="feature-item">
             <img src="<?=$path?>/Images/placeholder.png" alt="placeholder">
-            <p>Find a CyberStation
-            location at YUL Airport</p>
+            <p><?=FOUND?></p>
         </div>
         <div class="feature-item">
             <img src="<?=$path?>/Images/hour.png" alt="Time">
-            <p>Decide how long you
-would like to play video
-games.</p>
+            <p><?=DECIDE?></p>
         </div>
         <div class="feature-item">
             <img src="<?=$path?>/Images/wifi.png" alt="High-Speed WiFi">
-            <p>Sit back and enjoy
-gaming at your
-sanitized station.</p>
+            <p><?=ENJOY?></p>
         </div>
         <div class="feature-item">
             <img src="<?=$path?>/Images/airplane.png" alt="Airplane">
-            <p>Time to board your
-flight relaxed and
-entertained.</p>
+            <p><?=BOARD?></p>
         </div>
     </div>
 </section>
 
         <!-- Location Section -->
         <section class="location">
-    <h2>Landing at YUL airport.</h2>
+    <h2><?=LANDING?></h2>
     <div class="location-images">
         <img src="<?=$path?>/Images/CyberStation2.png" alt="Left Image">
         <img src="<?=$path?>/Images/CyberStation.png" alt="right Image">
@@ -62,32 +58,32 @@ entertained.</p>
 
         <!-- Amenities Section -->
         <section class="amenities">
-    <h2>Sit back and enjoy the wait.</h2>
-    <p>To level up your experience, CyberStation provides the following amenities.</p>
+    <h2><?=SIT?></h2>
+    <p><?=AMENITIES?></p>
     <div class="amenity-items">
         <div class="amenity-box">
             <img src="<?=$path?>/Images/playstation.png" alt="Current Gen Gaming">
-            <p>Current Gen Gaming</p>
+            <p><?=CURRENT?></p>
         </div>
         <div class="amenity-box">
             <img src="<?=$path?>/Images/clean.png" alt="Meticulous Cleaning">
-            <p>Meticulous Cleaning and Disinfecting</p>
+            <p><?=CLEANING?></p>
         </div>
         <div class="amenity-box">
             <img src="<?=$path?>/Images/headphones.png" alt="Premium Gaming Headphones">
-            <p>Premium Gaming Headphones</p>
+            <p><?=HEADPHONES?></p>
         </div>
         <div class="amenity-box">
             <img src="<?=$path?>/Images/charging.png" alt="Charging Stations">
-            <p>Charging Stations</p>
+            <p><?=CHARGING?></p>
         </div>
         <div class="amenity-box">
             <img src="<?=$path?>/Images/snacks.png" alt="Snacks & Beverages">
-            <p>Snacks & Beverages</p>
+            <p><?=SNACKS?></p>
         </div>
         <div class="amenity-box">
             <img src="<?=$path?>/Images/wifi.png" alt="High Speed Internet">
-            <p>High Speed Internet</p>
+            <p><?=INTERNET?></p>
         </div>
     </div>
 </section>
@@ -95,17 +91,14 @@ entertained.</p>
 
         <!-- Pricing Section -->
         <section class="pricing">
-            <h2>Prices starting at just $7.99</h2>
-            <p>All prices include taxes and apply to all ages.</p>
+            <h2><?=PRICES?></h2>
+            <p><?=PRICEMEMO?></p>
         </section>
 
         <!-- About Section -->
         <section class="about">
-            <h2>About CyberStation</h2>
-            <p>CyberStation is the world’s first premium video game lounge <br>
-                    located in airports. Based on how much time they have until
-                    their next flight, passengers can enjoy <br> a first class video game
-                    experience to make time fly by.</p>
+            <h2><?=ABOUT?></h2>
+            <p><?=ABOUTMESSAGE?></p>
         </section>
     </main>
 

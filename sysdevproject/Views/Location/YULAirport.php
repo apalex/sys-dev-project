@@ -1,5 +1,8 @@
 <?php
 $path = dirname($_SERVER['SCRIPT_NAME']);
+$language = isset($_GET['lang']) ? $_GET['lang'] : 'en';
+
+include_once "Languages/".$language.".php";
 ?>
 
 <!DOCTYPE html>
@@ -16,8 +19,8 @@ $path = dirname($_SERVER['SCRIPT_NAME']);
 <body>
     <?php include_once dirname(__DIR__) . "/nav.php"; ?>
     <div class="container">
-        <h1>Pierre Elliott Trudeau Airport</h1>
-        <p>Near Gate 53</p>
+        <h1><?=AIRPORT?></h1>
+        <p><?=NEAR?></p>
 
         <div class="location-image-map">
             <img src=<?=$path."/Images/YULAirport.png"?> id="YULmap" alt="Map Image">

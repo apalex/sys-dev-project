@@ -1,6 +1,8 @@
 <?php
 $path = dirname($_SERVER['SCRIPT_NAME']);
 $language = isset($_GET['lang']) ? $_GET['lang'] : 'en';
+
+include_once "Languages/".$language.".php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,14 +17,14 @@ $language = isset($_GET['lang']) ? $_GET['lang'] : 'en';
     <div id="notification" class="notification"></div>
     
     <div class="login-container">
-        <h2>ADMIN LOGIN</h2>
+        <h2><?=LOGIN?></h2>
 
         <form action=<?=$path."/".$language."/admin/login"?> method="POST">
             <label for="username"></label>
-            <input type="text" id="username" name="username" placeholder="Username" required>
+            <input type="text" id="username" name="username" placeholder="<?=USERNAME?>" required>
             
             <label for="password"></label>
-            <input type="password" id="password" name="password" placeholder="Password" required>
+            <input type="password" id="password" name="password" placeholder="<?=PASSWORD?>" required>
             
             <input class="login-btn" type="submit" value="Login">
         </form>

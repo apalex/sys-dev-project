@@ -1,5 +1,8 @@
 <?php
 $path = dirname($_SERVER['SCRIPT_NAME']);
+$language = isset($_GET['lang']) ? $_GET['lang'] : 'en';
+
+include_once "Languages/".$language.".php";
 ?>
 
 <!DOCTYPE html>
@@ -15,40 +18,29 @@ $path = dirname($_SERVER['SCRIPT_NAME']);
 <body>
     <?php include_once dirname(__DIR__) . "/nav.php"; ?>
     <div class="container">
-        <h1>Locations</h1>
-        <p>A grandiose time awaits you at CyberStation!</p>
+        <h1><?=LOCATIONS?></h1>
+        <p><?=TIME?></p>
 
         <div class="location-icon">
             <img src=<?=$path."/Images/placeholder.png"?> alt="Location Icon">
         </div>
     </div>
-    <h2 class="airport-header">Pierre Elliott Trudeau Airport</h2>
+    <h2 class="airport-header"><?=AIRPORT?></h2>
     <div class="location-section">
         <div class="location-details">
-            <p>Pierre Elliott Trudeau Airport</p>
+            <p><?=AIRPORT?></p>
             <h2>YUL</h2>
-            <p>Near Gate (X)</p>
+            <p><?=NEAR?></p>
             <div class="status">
-                <span class="open">Open</span>
-                <span>6:00am - 9:00pm EST</span>
+                <span class="open"><?=OPEN?></span>
+                <span><?=OPENTIME?></span>
             </div>
-            <a href=<?=$path."/location/YULAirport"?> class="more-info">MORE INFO →</a>
+            <a href=<?=$path."/".$language."/location/YULAirport"?> class="more-info"><?=MORE?> →</a>
         </div>
         <div class="location-image">    
             <img src=<?=$path."/Images/CyberStation.png"?> id="cyberStation" alt="Airport Image">
         </div>
     </div>
-
-    <!-- <div class="hex-background">
-        <div class="hex-left">
-            <img class="hex" src="Grey-Hexagon-9x10-1.jpg" alt="hex">
-            <img class="hex" src="Grey-Hexagon-9x10-1.jpg" alt="hex">
-        </div>
-        <div class="hex-right">
-            <img class="hex" src="Grey-Hexagon-9x10-1.jpg" alt="hex">
-            <img class="hex" src="Grey-Hexagon-9x10-1.jpg" alt="hex">
-        </div>
-    </div> -->
 
     <?php include_once dirname(__DIR__) . "/footer.php"; ?>
 </body>
