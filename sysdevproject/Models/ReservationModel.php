@@ -2,6 +2,13 @@
 
 include_once "db.php";
 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require 'PHPMailer/src/Exception.php';
+require 'PHPMailer/src/PHPMailer.php';
+require 'PHPMailer/src/SMTP.php';
+
 class ReservationModel{
     public $reservationId;
     public $stationId;
@@ -113,6 +120,63 @@ class ReservationModel{
 
         $conn->query($sql);
     }
+
+    public static function sendReservationEmail($data) {
+        $mail = new PHPMailer(true);
+
+        try {
+            // Server settings
+            $mail->isSMTP();
+            $mail->Host       = 'smtp.gmail.com'; 
+            $mail->SMTPAuth   = true;
+            $mail->Username   = 'sysdevproj69@gmail.com';
+            $mail->Password   = 'wmjcogrprrikolhh';
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+            $mail->Port       = 587;
+
+            // Recipients
+            $mail->setFrom('sysdevproj69@gmail.com', 'Cyber Station');
+
+            // $mail->addAddress($data['email'], $data['firstName'] . " " . $data['lastName']); // Uncomment if you want to send the email to the user
+            // ONLY UNCOMMENT ONE
+            // $mail->addAddress('sysdevproj69@gmail.com', 'Admin'); // Uncomment if you want to send the email to the admin.
+
+
+            // Content
+            $mail->isHTML(true);
+            $mail->Subject = 'Reservation Confirmation';
+            $mail->Body    = "
+                <h1>Thank you for your reservation!</h1>
+                <p>Here are your reservation details:</p>
+                <p>
+                    <strong>Station:</strong> {$data['station']}<br>
+                    <strong>Name:</strong> {$data['firstName']} {$data['lastName']}<br>
+                    <strong>Email:</strong> {$data['email']}<br>
+                    <strong>Phone:</strong> {$data['phone']}<br>
+                    <strong>Reservation Time:</strong> {$data['hour']}:{$data['minute']} {$data['morningOrNight']}<br>
+                    <strong>Reservation Date:</strong> {$data['reservationDate']}<br>
+                    <strong>Length:</strong> {$data['length']} minutes
+                </p>
+                <p>We look forward to welcoming you!</p>
+            ";
+
+            $mail->AltBody = "Thank you for your reservation!\n\nHere are your reservation details:\n"
+                . "Station: {$data['station']}\n"
+                . "Name: {$data['firstName']} {$data['lastName']}\n"
+                . "Email: {$data['email']}\n"
+                . "Phone: {$data['phone']}\n"
+                . "Reservation Time: {$data['hour']}:{$data['minute']} {$data['morningOrNight']}\n"
+                . "Reservation Date: {$data['reservationDate']}\n"
+                . "Length: {$data['length']} minutes\n\n"
+                . "We look forward to welcoming you!";
+
+            $mail->send();
+        } catch (Exception $e) {
+            // Log the error
+            error_log("Mailer Error: " . $mail->ErrorInfo);
+        }
+    }
+
 }
 
 ?>

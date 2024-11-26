@@ -15,6 +15,7 @@
                 $stations = Station::list();
                 
                 if(ReservationModel::validateReservation($_POST)){
+                    ReservationModel::sendReservationEmail($_POST);
                     $this->render("Reservation", "reservationSummary", $_POST);
                 } else {
                     $this->render("Reservation", "reserve", $stations);
