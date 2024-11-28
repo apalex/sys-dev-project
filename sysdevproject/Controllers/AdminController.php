@@ -74,7 +74,7 @@ class AdminController extends Controller
             // Delete a reservation and redirect to home
             $reservation = new ReservationModel($id);
             $reservation->delete();
-            header("Location: " . dirname($_SERVER['SCRIPT_NAME']) . "/admin/home");
+            header("Location: " . dirname($_SERVER['SCRIPT_NAME']) ."/".$language."/admin/home");
         } else if ($action == "logout") {
             // Log out the user
             $_SESSION = array();
