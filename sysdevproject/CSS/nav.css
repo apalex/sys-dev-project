@@ -92,7 +92,7 @@ nav li:first-child {
 }
 
 #languages {
-    background-color: #fbfbfb;
+    background-color: transparent;
     border: 0;
     color: #0bbfbf; 
     padding: 5px;
