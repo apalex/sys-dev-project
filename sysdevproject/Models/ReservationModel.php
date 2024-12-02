@@ -137,6 +137,57 @@ class ReservationModel{
         $conn->query($sql);
     }
 
+    public static function send2FACode($data, $code) {
+        $mail = new PHPMailer(true);
+
+        try {
+            // Server settings
+            $mail->isSMTP();
+            $mail->Host       = 'smtp.gmail.com'; 
+            $mail->SMTPAuth   = true;
+            $mail->Username   = 'sysdevproj69@gmail.com';
+            $mail->Password   = 'wmjcogrprrikolhh';
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+            $mail->Port       = 587;
+
+            // Recipients
+            $mail->setFrom('sysdevproj69@gmail.com', 'Cyber Station');
+
+            $mail->addAddress($data['email'], $data['firstName'] . " " . $data['lastName']); // Uncomment if you want to send the email to the user
+            // ONLY UNCOMMENT ONE
+            // $mail->addAddress('sysdevproj69@gmail.com', 'Admin'); // Uncomment if you want to send the email to the admin.
+
+
+            // Content
+            $mail->isHTML(true);
+            $mail->Subject = '2FA Code';
+            $mail->Body    = "
+                <h1>2FA CODE</h1>
+                <p>Here is your 2FA code:</p>
+                <p>".
+                    $code
+                ."</p>
+                <p>We look forward to welcoming you!</p>
+            ";
+
+            $mail->send();
+
+            return true;
+        } catch (Exception $e) {
+            // Log the error
+            error_log("Mailer Error: " . $mail->ErrorInfo);
+            return false;
+        }
+    }
+
+    static function validate2FA($data){
+        if($data['2FA'] == $_SESSION['2FA']){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public static function sendReservationEmail($data) {
         $mail = new PHPMailer(true);
 
@@ -187,9 +238,12 @@ class ReservationModel{
                 . "We look forward to welcoming you!";
 
             $mail->send();
+
+            return true;
         } catch (Exception $e) {
             // Log the error
             error_log("Mailer Error: " . $mail->ErrorInfo);
+            return false;
         }
     }
 

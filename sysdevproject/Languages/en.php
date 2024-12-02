@@ -57,6 +57,9 @@ define('MINUTES', 'minutes');
 define('HOUR', 'hour');
 define('HOURS', 'hours');
 
+//2FA PAGE CONSTANTS
+define('TFA', '2 Factor Authentication');
+
 //RERVATION SUMMARY PAGE CONSTANTS
 define('THANK', 'Thank You!');
 define('CONFIRMATION', 'A confirmation has been sent to your email.');

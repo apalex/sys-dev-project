@@ -1,7 +1,6 @@
 <?php
 $path = dirname($_SERVER['SCRIPT_NAME']);
 $language = isset($_GET['lang']) ? $_GET['lang'] : 'en';
-
 ?>
 <!DOCTYPE html>
 <html lang="en">

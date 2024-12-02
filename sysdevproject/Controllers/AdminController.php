@@ -7,9 +7,6 @@ class AdminController extends Controller
 {
     function route()
     {
-        // Start session
-        session_start();
-
         // Check login state for all actions except "index" and "login"
         $action = isset($_GET['action']) ? $_GET['action'] : "index";
         $language = isset($_GET['lang']) ? $_GET['lang'] : 'en';

@@ -1,4 +1,16 @@
 <?php
+session_start();
+
+function getRandomString($n){
+    return bin2hex(random_bytes($n / 2));
+}
+
+if(!isset($_SESSION["2FA"])) {
+    $code = getRandomString(6);
+
+    $_SESSION['2FA'] = $code;
+}
+
 $controller = (isset($_GET['controller'])) ? $_GET['controller'] : "Home";
 $language = (isset($_GET["lang"])) ? $_GET["lang"] : "en";
 
