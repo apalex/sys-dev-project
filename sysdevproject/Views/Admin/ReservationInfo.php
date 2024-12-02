@@ -2,7 +2,6 @@
 $path = dirname($_SERVER['SCRIPT_NAME']);
 $language = isset($_GET['lang']) ? $_GET['lang'] : 'en';
 
-include_once "Languages/".$language.".php";
 ?>
 <!DOCTYPE html>
 <html lang="en">

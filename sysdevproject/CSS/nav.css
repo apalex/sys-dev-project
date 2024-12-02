@@ -5,18 +5,6 @@
     src: url(Cyberfunk.ttf);
 }
 
-/* Global */
-
-* {
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    overflow-x: hidden;
-    min-height: 100vh;
-}
-
 /* Navigation Bar */
 
 header {

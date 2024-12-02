@@ -67,33 +67,28 @@ p {
     float: left;
 }
 
+.airport-header{
+    text-align: center;
+}
+
 .location-section {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-between;
+    align-items: stretch;
     padding: 40px 0;
     background-color: white;
 }
 
-.location-details, .location-image {
-    width: 50%;
-}
-
-/*.location-details {
+.location-details {
+    width: 50%; 
     padding: 20px;
     text-align: center;
-    background: rgba(0, 0, 0, 0.1);
-}*/
-
-.location-details {
+    background: rgba(0, 0, 0, 0.05);
+    box-sizing: border-box; 
     display: flex;
-    flex-direction: column;  /* Stack items vertically */
-    justify-content: center; /* Center items vertically */
-    align-items: center;     /* Center items horizontally */
-    padding: 20px;
-    background: rgba(0, 0, 0, 0.1);
-    height: 100%; /* Ensure the box has height to center within */
-    text-align: center; /* Keep text alignment centered */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .location-details h2 {
@@ -130,6 +125,7 @@ p {
     color: #007BFF;
     text-decoration: none;
     font-weight: bold;
+    margin-top: 20px;
     /*transition: all 0.3s;*/
 }
 
@@ -138,25 +134,21 @@ p {
     color: white;
 }
 
-.location-image{
-    padding: 20px;
+.location-image {
+    width: 50%;  
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.location-image-map{
-    padding: 20px;
-    text-align: center;
+.location-image img#cyberStation {
+    width: 100%;  
+    height: 400px;  
+    object-fit: cover;  
 }
 
-.location-image img #cyberStation{
-    width: 100%;
-    height: 290px;
-}
-
-.location-image img #YULmap{
+.location-image img#YULmap {
     width: 100%;
     height: auto;
-}
-
-.airport-header {
-    text-align: center;
 }

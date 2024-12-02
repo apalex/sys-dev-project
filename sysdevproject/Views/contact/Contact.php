@@ -2,7 +2,6 @@
 $path = dirname($_SERVER['SCRIPT_NAME']);
 $language = isset($_GET['lang']) ? $_GET['lang'] : 'en';
 
-include_once "Languages/".$language.".php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,10 +17,9 @@ include_once "Languages/".$language.".php";
 <body>
     <?php include_once dirname(__DIR__) . "/nav.php"; ?>
 
-    <h1><?=CONTACTUS?></h1>
-    <p><?=HELP?></p>
-
     <main>
+        <h1><?=CONTACTUS?></h1>
+        <p><?=HELP?></p>
 
         <?php if (isset($_GET['status']) && $_GET['status'] == 'success'): ?>
             <p style="color: green; font-weight: bold;">Your message has been sent successfully!</p>

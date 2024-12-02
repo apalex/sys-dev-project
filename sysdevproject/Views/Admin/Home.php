@@ -2,7 +2,6 @@
 $path = dirname($_SERVER['SCRIPT_NAME']);
 $language = isset($_GET['lang']) ? $_GET['lang'] : 'en';
 
-include_once "Languages/".$language.".php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,6 +20,17 @@ include_once "Languages/".$language.".php";
         <span class="first-letter">C</span>yber <span class="second-letter">S</span>tation
     </h1>
     
+    <form action=<?=$path."/".$language."/admin/search"?> method="POST">
+        <fieldset>
+            <div class="date-input">
+                <input type="date" name="reservationDate">
+            </div>
+            <div class="button">
+                <input type="submit" value="<?=SUBMIT?>" class="submit-button">
+            </div>
+        </fieldset>
+    </form>
+
     <table class="reservations">
         <thead>
             <tr>

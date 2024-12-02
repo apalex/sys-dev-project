@@ -78,6 +78,22 @@ class ReservationModel{
         return $list;
     }
 
+    static function listByDate($data){
+        global $conn;
+        $list = array();
+
+        $sql = "SELECT * FROM `reservation` WHERE `reservationDate` = '". $data['reservationDate'] . "';";
+        $result = $conn->query($sql);
+
+        while($row = $result->fetch_object()){
+            $reservation = ReservationModel::castToReservation($row);
+
+            array_push($list, $reservation);
+        }
+
+        return $list;
+    }
+
     static function validateReservation($data){
         global $conn;
 

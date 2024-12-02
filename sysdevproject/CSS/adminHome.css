@@ -1,21 +1,21 @@
 /* Styles for the admin page */
 
 #logo {
+    height: 100%;
     text-decoration: none;
     color: black;
-    padding-left: 10px;
     font-size: 2rem;
     letter-spacing: 1px;
     font-family: 'Cyberfunk';
-    display: inline-block;
-    line-height: 1; /* Ensures the text is aligned in the middle */
 }
 
 #logo .first-letter {
+    font-size: 120%;
     color: #ee05f2;
 }
 
 #logo .second-letter {
+    font-size: 120%;
     color: #0bbfbf;
 }
 
@@ -34,6 +34,39 @@ h1 {
 p {
     font-size: 1.2em;
     color: #555;
+}
+
+fieldset {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    border: 0;
+    background-color: #fff;
+    text-align: center;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+fieldset input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ff00ff;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.button {
+    text-align: right;
+}
+
+.submit-button {
+    border: 0;
+    width: 90px;
+    padding: 10px;
+    border-radius: 25px;
+    background-color: #0bbfbf;
+    color: white;
 }
 
 table.reservations {

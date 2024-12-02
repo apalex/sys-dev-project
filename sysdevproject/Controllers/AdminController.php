@@ -48,7 +48,7 @@ class AdminController extends Controller
             }
         } else if ($action == "home") {
             if (!isset($_SESSION['username']) || !isset($_SESSION['password'])) {
-                header("Location: " . dirname($_SERVER['SCRIPT_NAME']) . "/admin");
+                header("Location: " . dirname($_SERVER['SCRIPT_NAME']) ."/".$language."/admin");
                 exit;
             }
             // Display home page with reservations
@@ -57,7 +57,7 @@ class AdminController extends Controller
         } else if ($action == "reservationInfo") {
             // Ensure the user is logged in before accessing reservation info
             if (!isset($_SESSION['username']) || !isset($_SESSION['password'])) {
-                header("Location: " . dirname($_SERVER['SCRIPT_NAME']) . "/admin");
+                header("Location: " . dirname($_SERVER['SCRIPT_NAME']) ."/".$language."/admin");
                 exit;
             }
 
@@ -67,7 +67,7 @@ class AdminController extends Controller
         } else if ($action == "delete") {
             // Ensure the user is logged in before attempting to delete
             if (!isset($_SESSION['username']) || !isset($_SESSION['password'])) {
-                header("Location: " . dirname($_SERVER['SCRIPT_NAME']) . "/admin");
+                header("Location: " . dirname($_SERVER['SCRIPT_NAME']) ."/".$language."/admin");
                 exit;
             }
 
@@ -75,6 +75,24 @@ class AdminController extends Controller
             $reservation = new ReservationModel($id);
             $reservation->delete();
             header("Location: " . dirname($_SERVER['SCRIPT_NAME']) ."/".$language."/admin/home");
+        } else if ($action == "search") {
+            // Ensure the user is logged in before attempting to delete
+            if (!isset($_SESSION['username']) || !isset($_SESSION['password'])) {
+                header("Location: " . dirname($_SERVER['SCRIPT_NAME']) ."/".$language."/admin");
+                exit;
+            }
+
+            if(isset($_POST["reservationDate"])) {
+                if($_POST['reservationDate'] == ''){
+                    $reservations = ReservationModel::list();
+                    $this->render("Admin", "home", $reservations);
+                } else {
+                    $reservations = ReservationModel::listByDate($_POST);
+                    $this->render("Admin", "home", $reservations);
+                }
+            } else {
+                header("Location: " . dirname($_SERVER['SCRIPT_NAME']) ."/".$language."/admin/home");
+            }
         } else if ($action == "logout") {
             // Log out the user
             $_SESSION = array();
