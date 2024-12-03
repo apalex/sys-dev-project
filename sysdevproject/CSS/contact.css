@@ -39,6 +39,12 @@ p {
     text-align: left;
 }
 
+@media(max-width: 400px) {
+    .contact-form {
+        width: 300px;
+    }
+}
+
 .contact-form label {
     font-size: 14px;
     color: #000;
