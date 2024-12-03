@@ -59,6 +59,7 @@ define('HOURS', 'hours');
 
 //2FA PAGE CONSTANTS
 define('TFA', '2 Factor Authentication');
+define('EMAILCHECK', 'Please check email for 2FA code');
 
 //RERVATION SUMMARY PAGE CONSTANTS
 define('THANK', 'Thank You!');

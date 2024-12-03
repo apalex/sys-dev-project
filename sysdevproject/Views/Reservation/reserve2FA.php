@@ -1,8 +1,6 @@
 <?php 
     $path = dirname($_SERVER['SCRIPT_NAME']);
-    $language = isset($_GET['lang']) ? $_GET['lang'] :'';
-
-    echo $_SESSION['2FA'];
+    $language = isset($_GET['lang']) ? $_GET['lang'] : 'en';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,6 +16,8 @@
     
     <div class="login-container">
         <h2><?=TFA?></h2>
+
+        <p><?=EMAILCHECK?></p>
 
         <form action=<?=$path."/".$language."/reservation/2FA"?> method="POST">
             <input type="text" id="username" name="2FA" placeholder="<?=TFA?>" required>

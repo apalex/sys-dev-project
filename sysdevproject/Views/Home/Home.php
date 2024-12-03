@@ -56,36 +56,36 @@ $language = isset($_GET['lang']) ? $_GET['lang'] : 'en';
 
 
         <!-- Amenities Section -->
-        <section class="amenities">
-    <h2><?=SIT?></h2>
-    <p><?=AMENITIES?></p>
-    <div class="amenity-items">
-        <div class="amenity-box">
-            <img src="<?=$path?>/Images/playstation.png" alt="Current Gen Gaming">
-            <p><?=CURRENT?></p>
+        <div class="amenities">
+            <h2><?=SIT?></h2>
+            <p><?=AMENITIES?></p>
+            <div class="amenity-items">
+                <div class="amenity-box">
+                    <img src="<?=$path?>/Images/playstation.png" alt="Current Gen Gaming">
+                    <p><?=CURRENT?></p>
+                </div>
+                <div class="amenity-box">
+                    <img src="<?=$path?>/Images/clean.png" alt="Meticulous Cleaning">
+                    <p><?=CLEANING?></p>
+                </div>
+                <div class="amenity-box">
+                    <img src="<?=$path?>/Images/headphones.png" alt="Premium Gaming Headphones">
+                    <p><?=HEADPHONES?></p>
+                </div>
+                <div class="amenity-box">
+                    <img src="<?=$path?>/Images/charging.png" alt="Charging Stations">
+                    <p><?=CHARGING?></p>
+                </div>
+                <div class="amenity-box">
+                    <img src="<?=$path?>/Images/snacks.png" alt="Snacks & Beverages">
+                    <p><?=SNACKS?></p>
+                </div>
+                <div class="amenity-box">
+                    <img src="<?=$path?>/Images/wifi.png" alt="High Speed Internet">
+                    <p><?=INTERNET?></p>
+                </div>
+            </div>
         </div>
-        <div class="amenity-box">
-            <img src="<?=$path?>/Images/clean.png" alt="Meticulous Cleaning">
-            <p><?=CLEANING?></p>
-        </div>
-        <div class="amenity-box">
-            <img src="<?=$path?>/Images/headphones.png" alt="Premium Gaming Headphones">
-            <p><?=HEADPHONES?></p>
-        </div>
-        <div class="amenity-box">
-            <img src="<?=$path?>/Images/charging.png" alt="Charging Stations">
-            <p><?=CHARGING?></p>
-        </div>
-        <div class="amenity-box">
-            <img src="<?=$path?>/Images/snacks.png" alt="Snacks & Beverages">
-            <p><?=SNACKS?></p>
-        </div>
-        <div class="amenity-box">
-            <img src="<?=$path?>/Images/wifi.png" alt="High Speed Internet">
-            <p><?=INTERNET?></p>
-        </div>
-    </div>
-</section>
 
 
         <!-- Pricing Section -->

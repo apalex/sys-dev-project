@@ -10,9 +10,10 @@ class AdminController extends Controller
         // Check login state for all actions except "index" and "login"
         $action = isset($_GET['action']) ? $_GET['action'] : "index";
         $language = isset($_GET['lang']) ? $_GET['lang'] : 'en';
+
         if (!isset($_SESSION['username']) && !isset($_SESSION['password']) && $action !== "index" && $action !== "login") {
             // Redirect to login page if not logged in
-            header("Location: " . dirname($_SERVER['SCRIPT_NAME']) . "/admin");
+            header("Location: " . dirname($_SERVER['SCRIPT_NAME']) ."/". $language . "/admin");
             exit;
         }
 

@@ -2,11 +2,13 @@
     include_once "Controllers/Controller.php";
     include_once "Models/StationModel.php";
     include_once "Models/ReservationModel.php";
+    include_once "Models/2FA.php";
 
     class ReservationController extends Controller{
         function route(){
             $action = isset($_GET['action']) ? $_GET['action'] : "index";
             $language = isset($_GET['lang']) ? $_GET['lang'] : 'en';
+            $code = new TwoFA();
             
             if($action == "index"){
                 $stations = Station::list();
@@ -17,6 +19,7 @@
                 
                 if(isset($_POST['firstName'])){
                     if(ReservationModel::validateReservation($_POST)){
+                        $_SESSION['2FA'] = $code->code;
                         $_SESSION['station'] = $_POST['station'];
                         $_SESSION['firstName'] = $_POST['firstName'];
                         $_SESSION['lastName'] = $_POST['lastName'];
@@ -46,6 +49,7 @@
                 } else {
                     if(ReservationModel::validate2FA($_POST)) {
                         $this->render("Reservation", "reservationSummary", $_SESSION);
+                        ReservationModel::sendReservationEmail($_SESSION);
                     } else {
                         $this->render("Reservation", "reserve", $stations);
                     }

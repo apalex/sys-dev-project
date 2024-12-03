@@ -204,7 +204,7 @@ class ReservationModel{
             // Recipients
             $mail->setFrom('sysdevproj69@gmail.com', 'Cyber Station');
 
-            // $mail->addAddress($data['email'], $data['firstName'] . " " . $data['lastName']); // Uncomment if you want to send the email to the user
+            $mail->addAddress($data['email'], $data['firstName'] . " " . $data['lastName']); // Uncomment if you want to send the email to the user
             // ONLY UNCOMMENT ONE
             // $mail->addAddress('sysdevproj69@gmail.com', 'Admin'); // Uncomment if you want to send the email to the admin.
 

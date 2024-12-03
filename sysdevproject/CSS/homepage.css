@@ -76,12 +76,12 @@ main {
     object-fit: cover; /* Ensures the images are cropped to fit */
 }
 
-
-
 /* Amenities Section */
 .amenities {
     padding: 40px 0;
     text-align: center;
+    width: 600px;
+    margin: 0 auto;
 }
 
 .amenities h2 {
@@ -98,21 +98,21 @@ main {
 
 .amenity-items {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Two columns */
-    column-gap: 10px; /* Reduced middle gap */
-    row-gap: 15px; /* Vertical gap between rows */
+    grid-template-columns: repeat(2, 1fr); 
+    column-gap: 1px; 
+    row-gap: 10px;
     justify-items: center;
     align-items: center;
 }
 
 .amenity-box {
     background-color: #f9f9f9;
-    padding: 15px;
+    padding: 10px;
     border-radius: 8px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
-    width: 80%;
-    max-width: 250px;
+    width: 90%;
+    max-width: 220px;
 }
 
 .amenity-box img {
@@ -125,9 +125,6 @@ main {
     font-size: 0.9em;
     color: #333;
 }
-
-
-
 
 /* Pricing Section */
 .pricing {
