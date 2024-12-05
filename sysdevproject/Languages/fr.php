@@ -61,6 +61,11 @@ define('HOURS', 'heures');
 define('TFA', 'Authentication ​​à 2 facteurs');
 define('EMAILCHECK', 'Veuillez vérifier votre e-mail pour le code 2FA');
 
+//PAYMENT PAGE CONSTANTS
+define('COMPLETE', 'Complétez votre paiement');
+define('AMOUNT', 'Montant');
+define('PAY', 'Payer');
+
 //RERVATION SUMMARY PAGE CONSTANTS
 define('THANK', 'Merci!');
 define('CONFIRMATION', 'Une confirmation a été envoyée à votre adresse e-mail.');
@@ -70,6 +75,7 @@ define('NAME', 'Nom');
 define('RESERVATIONTIME', 'Heure de réservation');
 define('LENGTH', 'Durée de la réservation');
 define('RESERVATIONDATE', 'Date de réservation');
+define('AMOUNTPAID', 'Montant payer');
 
 //ADMIN HOME PAGE CONSTANTS
 define('STATIONID', 'ID de la station');

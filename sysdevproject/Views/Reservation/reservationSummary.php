@@ -52,6 +52,8 @@ $language = isset($_GET['lang']) ? $_GET['lang'] : 'en';
             ?>"><br>
             <label><?=RESERVATIONDATE?>:</label>
             <input type="text" disabled value="<?php echo $data['reservationDate']?>"><br>
+            <label><?=AMOUNTPAID?>:</label>
+            <input type="text" disabled value="<?php echo $data['amountPaid']?>"><br>
         </fieldset>
     </main>
 

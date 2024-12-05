@@ -32,6 +32,7 @@
                         $_SESSION['reservationDate'] = $_POST['reservationDate'];
                         if(ReservationModel::send2FACode($_POST, $_SESSION['2FA'])){
                             header("Location: " . dirname($_SERVER['SCRIPT_NAME']) ."/". $language . "/reservation/2FA");
+                            exit();
                         } else {
                             $this->render("Reservation", "reserve", $stations);
                         }
@@ -48,12 +49,39 @@
                     $this->render("Reservation", "reserve2FA", $_SESSION);
                 } else {
                     if(ReservationModel::validate2FA($_POST)) {
-                        $this->render("Reservation", "reservationSummary", $_SESSION);
-                        ReservationModel::sendReservationEmail($_SESSION);
+                        $reservationID = ReservationModel::addSave($_SESSION);
+                        $reservation = new ReservationModel($reservationID);
+
+                        $paymentDetails = $reservation->fetchReservationDetails();
+
+                        $response = [
+                            "reservationID" => $reservationID,
+                            "amount" => $paymentDetails["amount"],
+                            "currency" => $paymentDetails["currency"],
+                            "clientSecret" => $paymentDetails["clientSecret"]
+                        ];
+
+                        $this->render("Reservation", "payment", $response);
                     } else {
                         $this->render("Reservation", "reserve", $stations);
                     }
                 }
+            } else if($action == "Summary"){
+                $this->render("Reservation", "reservationSummary", $_SESSION);
+            } else if($action == 'payment'){
+                $reservationID = ReservationModel::addSave(["station"=>1, "firstName"=>'Jeff', "lastName"=>'Jeff', "email"=>'jeffjeff@hotmail.com', "phone"=>'514 649 2232', "hour"=>'07', "minute"=>'00', "morningOrNight"=>'AM', "length"=>'30', "reservationDate"=>'2025-01-12']);
+                $reservation = new ReservationModel($reservationID);
+
+                //$paymentDetails = $reservation->fetchReservationDetails();
+
+                $response = [
+                    "reservationID" => $reservationID,
+                    "amount" => 100,
+                    "currency" => 'cad',
+                    "clientSecret" => "test_client_secret"
+                ];
+
+                $this->render("Reservation", "payment", $response);
             }
         }
     }

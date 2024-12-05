@@ -80,8 +80,15 @@ main {
 .amenities {
     padding: 40px 0;
     text-align: center;
-    width: 600px;
-    margin: 0 auto;
+}
+
+@media(min-width: 750px) {
+    .amenities {
+        padding: 40px 0;
+        text-align: center;
+        width: 600px;
+        margin: 0 auto;
+    }
 }
 
 .amenities h2 {

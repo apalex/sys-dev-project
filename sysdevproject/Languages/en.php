@@ -61,6 +61,11 @@ define('HOURS', 'hours');
 define('TFA', '2 Factor Authentication');
 define('EMAILCHECK', 'Please check email for 2FA code');
 
+//PAYMENT PAGE CONSTANTS
+define('COMPLETE', 'Complete Your Payment');
+define('AMOUNT', 'Amount');
+define('PAY', 'Pay');
+
 //RERVATION SUMMARY PAGE CONSTANTS
 define('THANK', 'Thank You!');
 define('CONFIRMATION', 'A confirmation has been sent to your email.');
@@ -70,6 +75,7 @@ define('NAME', 'Name');
 define('RESERVATIONTIME', 'Time of Reservation');
 define('LENGTH', 'Length of Reservation');
 define('RESERVATIONDATE', 'Reservation Date');
+define('AMOUNTPAID', 'Amount Paid');
 
 //ADMIN HOME PAGE CONSTANTS
 define('STATIONID', 'Station ID');
@@ -82,5 +88,7 @@ define('PASSWORD', 'Password');
 //ADMIN RESERVATION INFO PAGE CONSTANTS
 define('RESERVATIONID', 'Reservation ID');
 define('BACK', 'Back');
+
+
 
 ?>

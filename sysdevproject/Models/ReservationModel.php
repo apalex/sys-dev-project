@@ -5,11 +5,14 @@ include_once "db.php";
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require 'PHPMailer/src/Exception.php';
-require 'PHPMailer/src/PHPMailer.php';
-require 'PHPMailer/src/SMTP.php';
+require_once 'PHPMailer/src/Exception.php';
+require_once 'PHPMailer/src/PHPMailer.php';
+require_once 'PHPMailer/src/SMTP.php';
+require_once 'libs/stripe-php/init.php';
 
-class ReservationModel{
+\Stripe\Stripe::setApiKey('sk_test_51QS167CDO0UiuJId9mGPXGb3aLXxnvVGu0UXCK9X7FQRBkLa2hWETuSi0li4hQyCXawgCecJOtLTWK1JaIYP6XbE009dmKFD84');
+
+class ReservationModel {
     public $reservationId;
     public $stationId;
     public $u_name;
@@ -19,9 +22,8 @@ class ReservationModel{
     public $lengthOfReservation;
     public $reservationDate;
 
-    function __construct($id = -1)
-    {
-        if($id < 0){
+    function __construct($id = -1) {
+        if ($id < 0) {
             $this->stationId = "";
             $this->u_name = "";
             $this->u_email = "";
@@ -47,7 +49,7 @@ class ReservationModel{
         }
     }
 
-    static function castToReservation($obj){
+    static function castToReservation($obj) {
         $reservation = new ReservationModel();
 
         $reservation->reservationId = $obj->reservationId;
@@ -94,33 +96,12 @@ class ReservationModel{
         return $list;
     }
 
-    static function validateReservation($data){
-        global $conn;
-
-        $stmt = $conn->prepare("SELECT * FROM `reservation` WHERE `stationID` LIKE ? AND `reservationTime` LIKE ? AND `reservationDate` LIKE ?");
-
-        $reservationTime = $data['hour'].":".$data['minute']." ".$data['morningOrNight'];
-
-        $stmt->bind_param("sss", $data['station'], $reservationTime, $data['reservationDate']);
-
-        $stmt->execute();
-
-        $result = $stmt->get_result();
-
-        if($result->num_rows < 1){
-            ReservationModel::addSave($data);
-            return true;
-        } else {
-            echo "<script>alert('The selected time is already reserved. Please choose a different time.');</script>";
-            return false;
-        }
-    }
-
     static function addSave($data) {
         global $conn;
 
-        $stmt = $conn->prepare("INSERT INTO `reservation` (`reservationId`, `stationId`, `u_name`, `u_email`, `u_phone`, `reservationTime`, `lengthOfRes`, `reservationDate`) 
-                               VALUES (NULL,?,?,?,?,?,?,?)");
+        $stmt = $conn->prepare("INSERT INTO `reservation` 
+            (`stationId`, `u_name`, `u_email`, `u_phone`, `reservationTime`, `lengthOfRes`, `reservationDate`, `payment_status`) 
+            VALUES (?, ?, ?, ?, ?, ?, ?, 'pending')");
 
         $name = $data['lastName'].", ".$data['firstName'];
         $reservationTime = $data['hour'].":".$data['minute']." ".$data['morningOrNight'];
@@ -128,6 +109,29 @@ class ReservationModel{
         $stmt->bind_param("issssss", $data['station'], $name, $data['email'], $data['phone'], $reservationTime, $data['length'], $data['reservationDate']);
 
         $stmt->execute();
+
+        return $conn->insert_id;
+    }
+
+    static function validateReservation($data) {
+        global $conn;
+
+        $stmt = $conn->prepare("SELECT * FROM `reservation` WHERE `stationID` LIKE ? AND `reservationTime` LIKE ? AND `reservationDate` LIKE ?");
+
+        $reservationTime = $data['hour'] . ":" . $data['minute'] . " " . $data['morningOrNight'];
+
+        $stmt->bind_param("sss", $data['station'], $reservationTime, $data['reservationDate']);
+
+        $stmt->execute();
+
+        $result = $stmt->get_result();
+
+        if ($result->num_rows < 1) {
+            return true; // Time slot is available
+        } else {
+            echo "<script>alert('The selected time is already reserved. Please choose a different time.');</script>";
+            return false;
+        }
     }
 
     function delete(){
@@ -137,13 +141,14 @@ class ReservationModel{
         $conn->query($sql);
     }
 
+
     public static function send2FACode($data, $code) {
         $mail = new PHPMailer(true);
 
         try {
             // Server settings
             $mail->isSMTP();
-            $mail->Host       = 'smtp.gmail.com'; 
+            $mail->Host       = 'smtp.gmail.com';
             $mail->SMTPAuth   = true;
             $mail->Username   = 'sysdevproj69@gmail.com';
             $mail->Password   = 'wmjcogrprrikolhh';
@@ -152,11 +157,7 @@ class ReservationModel{
 
             // Recipients
             $mail->setFrom('sysdevproj69@gmail.com', 'Cyber Station');
-
-            $mail->addAddress($data['email'], $data['firstName'] . " " . $data['lastName']); // Uncomment if you want to send the email to the user
-            // ONLY UNCOMMENT ONE
-            // $mail->addAddress('sysdevproj69@gmail.com', 'Admin'); // Uncomment if you want to send the email to the admin.
-
+            $mail->addAddress($data['email'], $data['firstName'] . " " . $data['lastName']);
 
             // Content
             $mail->isHTML(true);
@@ -164,24 +165,20 @@ class ReservationModel{
             $mail->Body    = "
                 <h1>2FA CODE</h1>
                 <p>Here is your 2FA code:</p>
-                <p>".
-                    $code
-                ."</p>
+                <p>$code</p>
                 <p>We look forward to welcoming you!</p>
             ";
 
             $mail->send();
-
             return true;
         } catch (Exception $e) {
-            // Log the error
             error_log("Mailer Error: " . $mail->ErrorInfo);
             return false;
         }
     }
 
-    static function validate2FA($data){
-        if($data['2FA'] == $_SESSION['2FA']){
+    static function validate2FA($data) {
+        if ($data['2FA'] == $_SESSION['2FA']) {
             return true;
         } else {
             return false;
@@ -247,6 +244,39 @@ class ReservationModel{
         }
     }
 
-}
+    function fetchReservationDetails(){
+        // Calculate the amount based on reservation details
+        $amount = $this->calculateAmount(); // Example function to calculate payment amount
+        $currency = 'cad'; // Set currency for the payment
 
+        // Create a payment intent
+        try {
+            $paymentIntent = \Stripe\PaymentIntent::create([
+                'amount' => $amount, // Amount in cents
+                'currency' => $currency,
+                'description' => 'Reservation Payment - ID ' . $this->reservationId,
+            ]);
+
+            // Get the client secret to pass to the frontend
+            return ["amount"=>$paymentIntent['amount'], "currency"=>$paymentIntent['currency'], "clientSecret"=>$paymentIntent->client_secret, "reservationID"=>$this->reservationId];
+        } catch (Exception $e) {
+            die('Error creating payment intent: ' . $e->getMessage());
+        }
+    }
+
+    function calculateAmount() {
+        switch($this->lengthOfReservation){
+            case 30:
+                $ratePerHour = 7.99;
+                break;
+            case 60:
+                $ratePerHour = 9.99;
+                break;
+            case 120:
+                $ratePerHour = 19.99;
+                break;
+        }; // Price in CAD per hour
+        return $ratePerHour * 100; // Convert to cents
+    }
+}
 ?>
