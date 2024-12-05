@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 04, 2024 at 05:55 AM
+-- Generation Time: Dec 05, 2024 at 06:03 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -39,7 +39,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`adminId`, `username`, `password`, `validateAdmin`) VALUES
-(1, 'gFinelli', '123', 1);
+(2, 'admin', '123', 1);
 
 -- --------------------------------------------------------
 
@@ -68,7 +68,8 @@ CREATE TABLE `reservation` (
   `u_phone` varchar(64) NOT NULL,
   `reservationTime` varchar(64) NOT NULL,
   `lengthOfRes` double NOT NULL,
-  `reservationDate` date NOT NULL
+  `reservationDate` date NOT NULL,
+  `payment_status` enum('pending','completed') DEFAULT 'pending'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -153,7 +154,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `adminId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `adminId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `payment`
@@ -165,7 +166,7 @@ ALTER TABLE `payment`
 -- AUTO_INCREMENT for table `reservation`
 --
 ALTER TABLE `reservation`
-  MODIFY `reservationId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `reservationId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=95;
 
 --
 -- AUTO_INCREMENT for table `station`
