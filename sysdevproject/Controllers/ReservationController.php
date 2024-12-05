@@ -62,26 +62,13 @@
                         ];
 
                         $this->render("Reservation", "payment", $response);
+                        ReservationModel::sendReservationEmail($_SESSION);
                     } else {
                         $this->render("Reservation", "reserve", $stations);
                     }
                 }
             } else if($action == "Summary"){
                 $this->render("Reservation", "reservationSummary", $_SESSION);
-            } else if($action == 'payment'){
-                $reservationID = ReservationModel::addSave(["station"=>1, "firstName"=>'Jeff', "lastName"=>'Jeff', "email"=>'jeffjeff@hotmail.com', "phone"=>'514 649 2232', "hour"=>'07', "minute"=>'00', "morningOrNight"=>'AM', "length"=>'30', "reservationDate"=>'2025-01-12']);
-                $reservation = new ReservationModel($reservationID);
-
-                //$paymentDetails = $reservation->fetchReservationDetails();
-
-                $response = [
-                    "reservationID" => $reservationID,
-                    "amount" => 100,
-                    "currency" => 'cad',
-                    "clientSecret" => "test_client_secret"
-                ];
-
-                $this->render("Reservation", "payment", $response);
             }
         }
     }

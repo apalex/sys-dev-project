@@ -7,13 +7,13 @@ require 'PHPMailer/src/PHPMailer.php';
 require 'PHPMailer/src/SMTP.php';
 
 class Contact {
-    static function sendMail() {
+    static function sendMail($data) {
         
-        $firstName = isset($_POST['first_name']) ? htmlspecialchars($_POST['first_name']) : '';
-        $lastName = isset($_POST['last_name']) ? htmlspecialchars($_POST['last_name']) : '';
-        $subject = isset($_POST['subject']) ? htmlspecialchars($_POST['subject']) : '';
-        $email = isset($_POST['email']) ? trim(filter_var($_POST['email'], FILTER_SANITIZE_EMAIL)) : '';
-        $message = isset($_POST['message']) ? htmlspecialchars($_POST['message']) : '';
+        $firstName = isset($data['first_name']) ? htmlspecialchars($data['first_name']) : '';
+        $lastName = isset($data['last_name']) ? htmlspecialchars($data['last_name']) : '';
+        $subject = isset($data['subject']) ? htmlspecialchars($data['subject']) : '';
+        $email = isset($data['email']) ? trim(filter_var($data['email'], FILTER_SANITIZE_EMAIL)) : '';
+        $message = isset($data['message']) ? htmlspecialchars($data['message']) : '';
 
         if (empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
             die('Invalid email format');

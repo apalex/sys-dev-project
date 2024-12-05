@@ -7,7 +7,7 @@
             $action = isset($_GET['action']) ? $_GET['action'] : "index";
             
             if ($action == "mail") {
-                $contacts = Contact::sendMail();
+                $contacts = Contact::sendMail($_POST);
                 $this->render("Contact", "contact");
                 exit;
             } elseif ($action == "index") {

@@ -25,7 +25,7 @@ $language = isset($_GET['lang']) ? $_GET['lang'] : 'en';
             <p style="color: green; font-weight: bold;">Your message has been sent successfully!</p>
         <?php endif; ?>
 
-        <form action="<?= $path . "/contact/mail"?>" method="POST" class="contact-form">
+        <form action="<?= $path . "/".$language."/contact/mail"?>" method="POST" class="contact-form">
             <p id="reminder">"<span class="asterix-higlighted">*</span>" <?=REQUIRED?></p>
             <select name="subject" id="inquiry-type" required>
                 <option value="General Inquiry"><?=GENERAL?></option>
