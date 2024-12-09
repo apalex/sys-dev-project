@@ -5,6 +5,7 @@ include_once "db.php";
 class Admin {
     public $username;
     public $password;
+    public $role;
 
     function __construct($id = -1)
     {
@@ -21,6 +22,7 @@ class Admin {
 
             $this->username = $data->username;
             $this->password = $data->password;
+            $this->role = $data->role;
         }
     }
 
@@ -29,7 +31,7 @@ class Admin {
 
         $admin->username = $obj->username;
         $admin->password = $obj->password;
-
+        $admin->role = $obj->role;
         return $admin;
     }
 
@@ -62,10 +64,32 @@ class Admin {
         $result = $stmt->get_result();
 
         if($result->num_rows > 0){
-            return true;
+            $admin = $result->fetch_object();
+            return Admin::castToAdmin($admin);
         } else {
             echo "<script>alert('Incorrect Admin Username or Password.');</script>";
             return false;
+        }
+    }
+
+    static function getRoleFromUserRights($username) {
+        global $conn;
+        $sql = "SELECT ur.role 
+                FROM user_rights ur 
+                JOIN admin a ON ur.userId = a.adminId
+                WHERE a.username = ?";
+
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("s", $username);
+        $stmt->execute();
+
+        $result = $stmt->get_result();
+
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_object();
+            return $row->role;  // Return the role (1 or 2)
+        } else {
+            return null;  // No role found, return null or handle as needed
         }
     }
 }

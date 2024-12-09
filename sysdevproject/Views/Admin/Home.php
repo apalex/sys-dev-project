@@ -2,6 +2,11 @@
 $path = dirname($_SERVER['SCRIPT_NAME']);
 $language = isset($_GET['lang']) ? $_GET['lang'] : 'en';
 
+if (isset($_SESSION['permission_error'])) {
+    echo "<script>alert('" . $_SESSION['permission_error'] . "');</script>";
+    unset($_SESSION['permission_error']);
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
