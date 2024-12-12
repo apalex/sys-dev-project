@@ -34,11 +34,17 @@ class Contact {
             $mail->Port = 587;
 
             // Recipient Information
-            $mail->setFrom($email, "$firstName "." $lastName");
+            $mail->setFrom($email, "$firstName $lastName");
+            $mail->addReplyTo($email, "$firstName $lastName");
             $mail->addAddress('sysdevproj69@gmail.com');
             $mail->Subject = $subject;
-            $mail->Body = $message;
-
+            $mail->Body = 
+            "
+                <p>You have received a new message from your contact form:</p>
+                <p><strong>From:</strong> $firstName $lastName ($email)</p>
+                <p><strong>Message:</strong></p>
+                <p>$message</p>
+            ";
             $mail->isHTML(true);
             $mail->send();
 
